@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <script type="text/javascript">
+        function handleLoginRequest(xhr, status, args) {
+            if(args.validationFailed || !args.loggedIn) {
+                PF('dlg').jq.effect("shake", {times:5}, 100);
+            }
+            else {
+                PF('dlg').hide();
+                $('#loginLink').fadeOut();
+            }
+        }
+    </script>
+
+    <h:head>
+        <title>Menú prueba</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <p:spinner />
+        <p:tabMenu activeIndex="#{param.i}">
+            <p:menuitem value="WelcomePrimefaces" outcome="/ui/menu/tabMenu" icon="ui-icon-star">
+                <f:param name="i" value="0" />
+                <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+            </p:menuitem>
+            <p:menuitem value="Input Text" outcome="/ui/menu/tabMenu" icon="ui-icon-search">
+                <f:param name="i" value="1" />
+                <h:link outcome="TestPages/template" value="Input text" />
+            </p:menuitem>
+            <p:menuitem value="Counter" outcome="/ui/menu/tabMenu" icon="ui-icon-document">
+                <f:param name="i" value="2" />
+                <h:link outcome="TestPages/T-Counter" value="Prueba counter" />
+            </p:menuitem>
+            <p:menuitem value="Status" outcome="/ui/menu/tabMenu" icon="ui-icon-wrench">
+                <f:param name="i" value="3" />
+                <h:link outcome="TestPages/T-Status" value="Status" />
+            </p:menuitem>
+            <p:menuitem value="RemoteControl" outcome="/ui/menu/tabMenu" icon="ui-icon-person">
+                <f:param name="i" value="4" />
+                <h:link outcome="TestPages/T-RemoteControl" value="Remote Control" />
+            </p:menuitem>
+            <p:menuitem value="LogIn" outcome="/ui/menu/tabMenu" icon="ui-icon-person">
+                <f:param name="i" value="5" />
+                    <h:link value="Remote Control" />
+                    <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
+                        <!--<p:graphicImage name="/demo/images/login.png" />-->
+                    </h:outputLink>
+
+                    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+                    <p:dialog header="Login" widgetVar="dlg" resizable="false">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <h:outputLabel for="username" value="Username:" />
+                            <p:inputText id="username" value="#{logonBean.username}" required="true" label="username" />
+
+                            <h:outputLabel for="password" value="Password:" />
+                            <p:password id="password" value="#{logonBean.password}" required="true" label="password" />
+
+                            <f:facet name="footer">
+                                <p:commandButton value="Login" update="growl" actionListener="#{logonBean.login}"
+                                                 oncomplete="handleLoginRequest(xhr, status, args)" />
+                            </f:facet>
+                        </h:panelGrid>
+                    </p:dialog>
+            </p:menuitem>
+        </p:tabMenu>
+        </h:form>
+    </h:body>
+</html>
+
