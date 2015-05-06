@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+
+            <p:panel id="basic" header="Crear Usuario" style="margin-bottom:20px">
+                <h:panelGrid id="create" columns="2" cellpadding="10">
+                    <h:outputLabel for="usuario" value="Usuario: " />
+                    <p:inputText id="usuario" value="#{createBean.usuario}" label="Usuario" required="true" />
+
+                    <h:outputLabel for="password" value="Contraseña" />
+                    <p:password id="password" value="#{createBean.password}" label="Password" required="true" />
+
+                    <p:commandButton update="msgs" value="Crear" id="ajax" icon="ui-icon-plus"
+                                     actionListener="#{createBean.create(actionEvent)}" />
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+
+            <p:panel id="basic" header="Leer Usuario" style="margin-bottom:20px">
+                <h:panelGrid id="create" columns="2" cellpadding="10">
+                    <h:outputLabel for="username" value="Usuario: " />
+                    <p:inputText id="username" value="#{loginBean.username}" label="Usuario" required="true" />
+
+                    <h:outputLabel for="password" value="Contraseña" />
+                    <p:password id="password" value="#{loginBean.password}" label="Password" required="true" />
+
+                    <p:commandButton update="msgs" value="Validar" id="ajax" icon="ui-icon-check"
+                                     actionListener="#{loginBean.read(actionEvent)}" />
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+
+            <p:panel id="basic" header="Modificar Usuario" style="margin-bottom:20px">
+                <h:panelGrid id="create" columns="2" cellpadding="10">
+                    <h:outputLabel for="nick" value="Usuario a modificar: " />
+                    <p:inputText id="nick" value="#{modifyBean.nick}" label="Nick" required="true" />
+
+                    <h:outputLabel for="username" value="Nuevo valor para Usuario: " />
+                    <p:inputText id="username" value="#{modifyBean.username}" label="Usuario" required="true" />
+
+                    <h:outputLabel for="password" value="Nuevo valor para Contraseña" />
+                    <p:password id="password" value="#{modifyBean.password}" label="Password" required="true" />
+
+                    <p:commandButton update="msgs" value="Modificar" id="ajax" icon="ui-icon-pencil"
+                                     actionListener="#{modifyBean.modify(actionEvent)}" />
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+
+            <p:panel id="basic" header="Eliminar Usuario" style="margin-bottom:20px">
+                <h:panelGrid id="create" columns="2" cellpadding="10">
+                    <h:outputLabel for="username" value="Usuario: " />
+                    <p:inputText id="username" value="#{deleteBean.username}" label="Usuario" required="true" />
+
+                    <p:commandButton update="msgs" value="Eliminar" id="ajax" icon="ui-icon-circle-close"
+                                     actionListener="#{deleteBean.delete(actionEvent)}" />
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+
+            <p:fieldset legend="Usuarios" style="margin-bottom:20px">
+                <h:panelGrid id="show" columns="2" cellpadding="10">
+                    <p:dataTable var="user" value="#{dtBasicView.list}">
+                        <p:column headerText="Usuario">
+                            <h:outputText value="#{user.username}" />
+                        </p:column>
+
+                        <p:column headerText="Contraseña">
+                            <h:outputText value="#{user.password}" />
+                        </p:column>
+                    </p:dataTable>
+                </h:panelGrid>
+            </p:fieldset>
+        </h:form>
+    </h:body>
+</html>
+
