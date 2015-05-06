@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+ 
+            <p:fieldset legend="Read - Iniciar sesión" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="username" value="Username:      " />
+                        <p:inputText id="username" value="#{logonBean.username}" required="true" label="username" />
+
+                        <h:outputLabel for="password" value="Password:      " />
+                        <p:password id="password" value="#{logonBean.password}" label="Password" required="true" />
+
+                        <f:facet name="footer">
+                            <p:growl id="growl" life="2000" />
+                            <p:commandButton value="Log in" id="ajax" update="msgs" 
+                                             actionListener="#{logonBean.login(actionEvent)}" icon="ui-icon-check" />
+                        </f:facet>
+                </h:panelGrid>
+            </p:fieldset>
+        </h:form>
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+ 
+            <p:fieldset legend="Create - Crear usuario" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="username" value="Username:      " />
+                        <p:inputText id="username" value="#{createBean.username}" required="true" label="username" />
+
+                        <h:outputLabel for="password" value="Password:      " />
+                        <p:password id="password" value="#{createBean.password}" label="Password" required="true" />
+
+                        <f:facet name="footer">
+                            <p:growl id="growl" life="2000" />
+                            <p:commandButton value="Crear" id="ajax" update="msgs" 
+                                             actionListener="#{createBean.create(actionEvent)}" icon="ui-icon-plus" />
+                        </f:facet>
+                </h:panelGrid>
+            </p:fieldset>
+        </h:form>
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+ 
+            <p:fieldset legend="Update - Modificar informacion" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="nick" value="Usuario a modificar:" />
+                        <p:inputText id="nick" value="#{updateBean.nick}" required="true" label="nick" />
+
+                        <h:outputLabel for="username" value="Username:      " />
+                        <p:inputText id="username" value="#{updateBean.username}" required="true" label="username" />
+
+                        <h:outputLabel for="password" value="Password:      " />
+                        <p:password id="password" value="#{updateBean.password}" label="Password" required="true" />
+
+                        <f:facet name="footer">
+                            <p:growl id="growl" life="2000" />
+                            <p:commandButton value="Modificar" id="ajax" update="msgs" 
+                                             actionListener="#{updateBean.update(actionEvent)}" icon="ui-icon-pencil" />
+                        </f:facet>
+                </h:panelGrid>
+            </p:fieldset>
+        </h:form>
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+ 
+            <p:fieldset legend="Delete - Eliminar usuario" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="username" value="Usuario a eliminar:" />
+                        <p:inputText id="username" value="#{deleteBean.username}" required="true" label="username" />
+
+                        <f:facet name="footer">
+                            <p:growl id="growl" life="2000" />
+                            <p:commandButton value="Eliminar" id="ajax" update="msgs" 
+                                             actionListener="#{deleteBean.delete(actionEvent)}" icon="ui-icon-circle-close" />
+                        </f:facet>
+                </h:panelGrid>
+            </p:fieldset>
+        </h:form>
+        <h:form>
+            <p:dataTable var="user" value="#{tableBean.users}">
+                <p:column headerText="Usuario">
+                    <h:outputText value="#{user.user}" />
+                </p:column>
+
+                <p:column headerText="Contraseña">
+                    <h:outputText value="#{user.pass}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
