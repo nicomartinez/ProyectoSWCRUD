@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    
+    <body style="padding: 0px">
+        <div style="min-width:400px;min-height:150px;background-color: rgb(255,255,56)">
+            <div ><img style="width: 100px; height: 100px" src="images/fondo3.jpg"></img></div>
+            <div ><h1 align="center" style="margin-top: -50px">NUESTRA EMPRESA</h1></div>
+        </div>
+        <div style="margin-top: -20px">
+            <h:form>
+            <p:menubar>
+                <p:menuitem value="Inicio" style="padding-top: 15px" url="http://www.primefaces.org" icon="ui-icon-home" />
+                <f:facet name="options">
+                    <p:menubar>
+                        <p:submenu label="Perfil" icon="ui-icon-person" >
+                            <p:menuitem value="Cambiar contraseña" url="#"/>
+                            <p:menuitem value="Salir" url="#"/>
+                        </p:submenu>
+                    </p:menubar>
+                </f:facet>
+            </p:menubar>
+            </h:form>
+        </div>
+        <h:form>
+            <p:layout  style="width:400px;min-height:400px;">
+                <p:layoutUnit  position="west" style="font-size: 12px" >
+                    <p:menu>
+                        <p:menuitem value="Pago de cuota moderadora"/>
+                        <p:menuitem value="Update"/>
+                        <p:menuitem value="Save"/>
+                        <p:menuitem value="Update"/>
+                        <p:menuitem value="Save"/>
+                        <p:menuitem value="Update"/>
+                        <p:menuitem value="Save"/>
+                        <p:menuitem value="Update"/>
+                        <p:menuitem value="Save"/>
+                        <p:menuitem value="Update"/>
+                    </p:menu>
+                </p:layoutUnit>
+                
+                <p:layoutUnit  position="center">
+                    <p:growl id="msgs" showDetail="true" />
+ 
+                    <p:panel id="basic" style="text-align: center">
+                        <h:panelGrid columns="1" cellpadding="9">
+                        </h:panelGrid>
+                        
+                    </p:panel>
+                </p:layoutUnit>
+            </p:layout>
+        </h:form>
+        <h:form>
+            <p:layout style="min-width:400px;min-height:50px;">
+                <p:layoutUnit position="center">
+                    Center
+                </p:layoutUnit>
+            </p:layout>
+        </h:form>
+    </body>
+</html>
+
