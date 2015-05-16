@@ -7,16 +7,19 @@
     <h:head>
         <title>Sistema Integrado de Salud </title>
     </h:head>
+    <style type="text/css">
+   .ui-state-hover {background-color: rgb(74,77,79)}
+</style>
     
     <body style="padding: 0px">
         <div style="min-width:400px;min-height:150px;background-color: rgb(43,46,49)">
-            <div ><img style="width: 100px; height: 100px" src="images/fondo3.jpg"></img></div>
-            <div ><h1 align="center" style="margin-top: -50px;color: rgb(255,255,255)">NUESTRA EMPRESA</h1></div>
+            <div ><img style="width: 100px; height: 100px; margin-top: 20px; margin-left: 30px" src="images/fondo3.jpg"></img></div>
+            <div ><h1 align="center" style="margin-top: -70px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
         </div>
         <div style="margin-top: -20px">
             <h:form>
-            <p:menubar>
-                <p:menuitem value="Inicio" style="padding-top: 15px" url="http://www.primefaces.org" icon="ui-icon-home" />
+                <p:menubar style="background-color: rgb(74,77,79)">
+                <p:menuitem value="INICIO" style="padding-top: 15px" url="http://www.primefaces.org" icon="ui-icon-home" />
                 <f:facet name="options">
                     <p:menubar>
                         <p:submenu label="Perfil" icon="ui-icon-person" >
@@ -28,35 +31,47 @@
             </p:menubar>
             </h:form>
         </div>
+        <div>
         <h:form>
-            <p:layout  style="width:400px;min-height:400px;">
-                <p:layoutUnit  position="west" style="font-size: 12px" >
-                    <p:menu>
-                        <p:menuitem value="Pago de cuota moderadora"/>
-                        <p:menuitem value="Update"/>
-                        <p:menuitem value="Save"/>
-                        <p:menuitem value="Update"/>
-                        <p:menuitem value="Save"/>
-                        <p:menuitem value="Update"/>
-                        <p:menuitem value="Save"/>
-                        <p:menuitem value="Update"/>
-                        <p:menuitem value="Save"/>
-                        <p:menuitem value="Update"/>
+            <p:menu style="font-size: 16px">
+                        <p:menuitem styleClass="ui-state-hover" value="Pago de cuota Moderadora"/>
+                        <p:menuitem value="Solicitud de Citas"/>
+                        <p:menuitem value="Cancelacion de Citas"/>
+                        <p:menuitem value="Farmacias y Laboratorios"/>
+                        <p:menuitem value="Actualizacion de Datos"/>
+                        <p:menuitem value="Certificado de Afiliacion"/>
+                        <p:menuitem value="Historias Clinicas"/>
+                        <p:menuitem value="Servicios Ips"/>
+                        <p:menuitem value="Sucursales"/>
+                        <p:menuitem value="Dispositivos"/>
+                        <p:menuitem value="Noticias y Eventos"/>
+                        <p:menuitem value="Saldo Disponible"/>
+                        <p:menuitem value="Movimientos Bancarios"/>
                     </p:menu>
-                </p:layoutUnit>
+               
                 
-                <p:layoutUnit  position="center">
-                    <p:growl id="msgs" showDetail="true" />
- 
-                    <p:panel id="basic" style="text-align: center">
-                        <h:panelGrid columns="1" cellpadding="9">
-                        </h:panelGrid>
-                    </p:panel>
-                </p:layoutUnit>
-            </p:layout>
+               
+            <div style="width:1114px; height:65px; position:absolute; left:226px;top:222px">
+                       
+                
+                        <div style="  width:1114px; height:400px; background-color: rgb(250,200,84)">
+                            
+                        </div>
+                
+                    <div style=" margin-top:0px; width:1114px;height:65px;background-color: rgb(235,119,14); ">
+                            <div><h3 align="center" style="color: rgb(255,255,255)">Ultimas Noticias</h3></div>
+                        </div>
+                    </div>
+                   
+                        
+               
+      
         </h:form>
+         </div>   
+            
+            
         <h:form>
-            <p:layout style="min-width:400px;min-height:50px;">
+            <p:layout style=" margin-top:100px; min-width:400px;min-height:50px;">
                 <p:layoutUnit position="center">
                     Center
                 </p:layoutUnit>
