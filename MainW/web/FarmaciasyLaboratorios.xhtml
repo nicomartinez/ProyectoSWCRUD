@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Sistema Integrado de Salud </title>
+    </h:head>
+    
+    <body style="padding: 0px">
+        <div style="min-width:400px;min-height:150px;background-color: rgb(43,46,49)">
+            <div ><img style="width: 100px; height: 100px; margin-top: 20px; margin-left: 30px" src="images/fondo3.jpg"></img></div>
+            <div ><h1 align="center" style="margin-top: -70px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
+        </div>
+        <div style="margin-top: -20px">
+            <h:form>
+                <p:menubar style="background-color: rgb(74,77,79)">
+                <p:menuitem value="INICIO" style="padding-top: 15px" url="index.xhtml" icon="ui-icon-home" />
+                <f:facet name="options">
+                    <p:menubar>
+                        <p:submenu label="Perfil" icon="ui-icon-person" >
+                            <p:menuitem value="Cambiar contraseña" url="#"/>
+                            <p:menuitem value="Salir" url="#"/>
+                        </p:submenu>
+                    </p:menubar>
+                </f:facet>
+            </p:menubar>
+            </h:form>
+        </div>
+        <div>
+        <h:form>
+            <p:menu style="font-size: 16px">
+                        <p:menuitem  url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
+                        <p:menuitem  url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
+                        <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
+                        <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
+                        <p:menuitem url="ActualizacionDatos.xhtml" value="Actualizacion de Datos"/>
+                        <p:menuitem value="Certificado de Afiliacion"/>
+                        <p:menuitem value="Historias Clinicas"/>
+                        <p:menuitem value="Servicios Ips"/>
+                        <p:menuitem value="Sucursales"/>
+                        <p:menuitem value="Dispositivos"/>
+                        <p:menuitem value="Noticias y Eventos"/>
+                        <p:menuitem value="Saldo Disponible"/>
+                        <p:menuitem value="Movimientos Bancarios"/>
+                    </p:menu>
+               
+                
+               
+            <div style="width:1114px; height:65px; position:absolute; left:226px;top:222px">
+                       <div style="width:1114px;height:65px;background-color: rgb(187,38,38);position: absolute">
+                           <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central">FARMACIAS Y LABORATORIOS</h3></div>
+                        </div>
+                
+                        <div style=" margin-top:3px; width:1114px; height:450px; background-color: rgb(235,108,90);position: absolute;top:66px">
+                            <h:form>
+                            <p:growl id="msgs" showDetail="true" />
+                            <p:panel id="basicTableFarmacias" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px; margin-top: 20px ">
+                                
+                                <p:dataTable var="car" value="#{dtBasicView.cars}">
+                                    <p:column headerText="Nombre">
+                                        <h:outputText value="#{car.id}" />
+                                    </p:column>
+
+                                    <p:column headerText="Direccion">
+                                        <h:outputText value="#{car.year}" />
+                                    </p:column>
+
+                                </p:dataTable>
+                                  
+                                
+                                
+                            </p:panel>
+                            
+                             <p:panel id="basicTableLaboratorios" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px; margin-top: 20px ">
+                                
+                                <p:dataTable var="car" value="#{dtBasicView.cars}">
+                                    <p:column headerText="Nombre">
+                                        <h:outputText value="#{car.id}" />
+                                    </p:column>
+
+                                    <p:column headerText="Direccion">
+                                        <h:outputText value="#{car.year}" />
+                                    </p:column>
+
+                                </p:dataTable>
+                                  
+                                
+                                
+                            </p:panel>
+                            </h:form>
+                        </div>
+            </div>
+                   
+                        
+                 
+      
+        </h:form>
+         </div>   
+            
+            
+        <h:form>
+            <p:layout style=" margin-top:100px; min-width:400px;min-height:50px;">
+                <p:layoutUnit position="center">
+                    Center
+                </p:layoutUnit>
+            </p:layout>
+        </h:form>
+    </body>
+</html>
