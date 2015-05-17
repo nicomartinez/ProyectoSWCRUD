@@ -20,6 +20,7 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
+         <welcome-file>faces/PagoCuota.xhtml</welcome-file>
     </welcome-file-list>
     <context-param>  
         <param-name>primefaces.THEME</param-name>  
