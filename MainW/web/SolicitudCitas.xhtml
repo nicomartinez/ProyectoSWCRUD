@@ -31,11 +31,11 @@
         <div>
         <h:form>
             <p:menu style="font-size: 16px">
-                        <p:menuitem value="Pago cuota Moderadora"/>
-                        <p:menuitem value="Solicitud de Citas"/>
-                        <p:menuitem value="Cancelacion de Citas"/>
-                        <p:menuitem value="Farmacias y Laboratorios"/>
-                        <p:menuitem value="Actualizacion de Datos"/>
+                        <p:menuitem  url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
+                        <p:menuitem  url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
+                        <p:menuitem  url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
+                        <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
+                        <p:menuitem url="ActualizacionDatos.xhtml" value="Actualizacion de Datos"/>
                         <p:menuitem value="Certificado de Afiliacion"/>
                         <p:menuitem value="Historias Clinicas"/>
                         <p:menuitem value="Servicios Ips"/>
@@ -53,37 +53,51 @@
                            <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central">SOLICITUD DE CITAS</h3></div>
                         </div>
                 
-                        <div style=" margin-top:3px; width:1114px; height:400px; background-color: rgb(235,108,90);position: absolute;top:66px">
+                        <div style=" margin-top:3px; width:1114px; height:450px; background-color: rgb(235,108,90);position: absolute;top:66px">
                             <h:form>
                             <p:growl id="msgs" showDetail="true" />
 
-                           <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px ">
+                           <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px; margin-top: 20px ">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8">                   
-                                    <h:outputLabel for="referencia" value="Referencia Cuota" />
-                                    <p:inputText id="referencia" value=""   required="true" />
+                                    <h:outputLabel for="tipoCita" value="Tipo de Cita" />
+                                     <p:selectOneMenu id="tipoCita" value="#{selectOneMenuView.console}" style="width:125px">
+                            
+                                    </p:selectOneMenu>
                                     
-                                    <h:outputLabel for="descripcion" value="Descripcion" />
-                                    <p:inputText id="descripcion" value=""   required="true" />
+                                    <h:outputLabel for="fecha" value="Fecha" />
                                     
-                                    <h:outputLabel for="valor" value="Valor a cancelar" />
-                                    <p:inputText id="valor" value=""   required="true" />
+                                    <p:calendar id="button" value="#{calendarView.date3}" showOn="button" />
+                                    
+                                    <h:outputLabel for="valor" value="Jornada" />
+                                    <p:selectOneMenu id="jornada" value="#{selectOneMenuView.console}" style="width:125px">
+                                        <f:selectItem itemLabel="Mañana" itemValue="" />
+                                        <f:selectItem itemLabel="Tarde" itemValue="Xbox One" />
+                                    </p:selectOneMenu>
+
+                                <p:commandButton icon="ui-icon-check" update="matchGrid" value="Aceptar" />
                                 </h:panelGrid>
                            </p:panel>
-                            <p:panel id="basic2i" style="margin-bottom:100px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px ">
-                              
-                                    <h:panelGrid columns="2" id="matchGrid2" cellpadding="8">  
-                                    
-                                    
-                                    
-                                    <h:outputLabel for="cuenta" value="Numero de cuenta" />
-                                    <p:inputText id="cuenta" value=""   required="true" />
-                                    
-                                    <h:outputLabel for="contraseña" value="Contraseña" />
-                                    <p:password id="contraseña" value=""   required="true" />
-                                </h:panelGrid>
+                            
+                            <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px; margin-top: 20px ">
+                                <h:panelGrid columns="1" id="matchGridTable" cellpadding="8"> 
+                                <p:dataTable var="car" value="#{dtBasicView.cars}">
+                                    <p:column headerText="Hora">
+                                        <h:outputText value="#{car.id}" />
+                                    </p:column>
+
+                                    <p:column headerText="Doctor">
+                                        <h:outputText value="#{car.year}" />
+                                    </p:column>
+
+                                    <p:column headerText="Lugar">
+                                        <h:outputText value="#{car.brand}" />
+                                    </p:column>
+
+                                </p:dataTable>
                                 
-                                <p:commandButton update="matchGrid" value="Aceptar" />
-                           </p:panel>
+                                <p:commandButton  icon="ui-icon-plus" update="matchGrid" value="Solicitar" />
+                                </h:panelGrid>
+                            </p:panel>
                             </h:form>
                         </div>
             </div>

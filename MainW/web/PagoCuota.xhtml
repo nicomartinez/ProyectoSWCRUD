@@ -31,11 +31,11 @@
         <div>
         <h:form>
             <p:menu style="font-size: 16px">
-                        <p:menuitem value="Pago cuota Moderadora"/>
-                        <p:menuitem value="Solicitud de Citas"/>
-                        <p:menuitem value="Cancelacion de Citas"/>
-                        <p:menuitem value="Farmacias y Laboratorios"/>
-                        <p:menuitem value="Actualizacion de Datos"/>
+                        <p:menuitem  url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
+                        <p:menuitem  url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
+                        <p:menuitem  url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
+                        <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
+                        <p:menuitem url="ActualizacionDatos.xhtml" value="Actualizacion de Datos"/>
                         <p:menuitem value="Certificado de Afiliacion"/>
                         <p:menuitem value="Historias Clinicas"/>
                         <p:menuitem value="Servicios Ips"/>
@@ -57,16 +57,16 @@
                             <h:form>
                             <p:growl id="msgs" showDetail="true" />
 
-                           <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px ">
+                           <p:panel id="basic" style="margin-bottom:30px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px; margin-top:20px  ">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8">                   
                                     <h:outputLabel for="referencia" value="Referencia Cuota" />
-                                    <p:inputText id="referencia" value=""   required="true" />
+                                    <p:inputText id="referencia" value=""  disabled="true" required="true" />
                                     
                                     <h:outputLabel for="descripcion" value="Descripcion" />
-                                    <p:inputText id="descripcion" value=""   required="true" />
+                                    <p:inputText id="descripcion" value=""  disabled="true" required="true" />
                                     
                                     <h:outputLabel for="valor" value="Valor a cancelar" />
-                                    <p:inputText id="valor" value=""   required="true" />
+                                    <p:inputText id="valor" value=""  disabled="true" required="true" />
                                 </h:panelGrid>
                            </p:panel>
                             <p:panel id="basic2i" style="margin-bottom:100px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px ">
@@ -81,8 +81,8 @@
                                     <h:outputLabel for="contraseña" value="Contraseña" />
                                     <p:password id="contraseña" value=""   required="true" />
                                 </h:panelGrid>
-                                
-                                <p:commandButton update="matchGrid" value="Aceptar" />
+                                     
+                                <p:commandButton  icon="ui-icon-check" update="matchGrid2" value="Aceptar" />
                            </p:panel>
                             </h:form>
                         </div>
