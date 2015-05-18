@@ -23,7 +23,6 @@
          <welcome-file>faces/PagoCuota.xhtml</welcome-file>
          <welcome-file>faces/SolicitudCitas.xhtml</welcome-file>
          <welcome-file>faces/CancelacionCitas.xhtml</welcome-file>
-         <welcome-file>faces/home.xhtml</welcome-file>
     </welcome-file-list>
     <context-param>  
         <param-name>primefaces.THEME</param-name>  

@@ -17,8 +17,13 @@
         </div>
         
         <div style="background-color: rgb(250,200,84); min-height: 400px; margin-top: -20px ">
-            <h:form>
-                <p:inputText  value="asdjhajsdha"/>
+            <h:form >
+                <p:layout>
+                    <p:outputLabel value="Nombre de usuario: *"/>
+                    <p:inputText  id="username"  value=""/>
+                    <p:password id="passw" />
+                    <p:button id="login" value="submit" />
+                </p:layout>
             </h:form>
         </div>
         
