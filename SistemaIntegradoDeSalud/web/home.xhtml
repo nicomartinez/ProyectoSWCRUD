@@ -17,18 +17,20 @@
         </div>
         
         <div style="background-color: rgb(250,200,84); min-height: 400px; margin-top: -20px " align="center">
+            <div align="center">
             <h:form >
                 <p:growl id="msgs" showDetail="true" />
-                <div align="center">
-                   <h:panelGrid columns="2" id="matchGrid" cellpadding="8" style=" margin-top:20px "> 
-                    <p:outputLabel value="Nombre de usuario: *"/>
-                    <p:inputText  id="username"  value="#{UsuarioBean.userName}" required="true"/>
-                    <p:outputLabel value="Contraseña: *"/>
-                    <p:password id="password" value="#{UsuarioBean.password}" required="true"/>
-                    <p:commandButton icon="ui-icon-check" update="ingresar" actionListener="#{usuarioBean.ingresar(actionEvent)}" value="Aceptar" />
+                <p:panel>
+                   <h:panelGrid columns="2" cellpadding="8" style=" margin-top:20px "> 
+                    <h:outputLabel value="Nombre de usuario: *"/>
+                    <p:inputText  id="username"  value="#{usuarioBean.userName}"/>
+                    <h:outputLabel value="Contraseña: *"/>
+                    <p:password id="password" value="#{usuarioBean.password}" />
+                    <p:commandButton icon="ui-icon-check" id="ajax" update="msgs" actionListener="#{usuarioBean.ingresar(actionEvent)}" value="Aceptar" />
                    </h:panelGrid>
-                </div>
+                </p:panel>
             </h:form>
+            </div>
         </div>
         
         <div style="background-color: rgb(74,77,79); margin-top: -20px">
