@@ -7,23 +7,27 @@
         <title>Sistema Integrado de Salud </title>
     </h:head>
     
-    <h:body style="margin: 0px">
+    <h:body style="margin-top: 0px">
         <div style="min-width:400px;min-height:200px;background-color: rgb(43,46,49)">
           <div ><img style="width: 257px; height: 130px; margin-top: 40px; margin-left: 30px" src="images/fondo3.jpg"></img></div>
           <div ><h1 align="center" style="margin-top: -90px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
         </div>
-        <div style="background-color: rgb(235,119,14); margin-top: -20px">
-            <div ><h1 align="center" >INICIO DE SESIÓN</h1></div>
+        <div style="background-color: rgb(235,119,14); height: 60px;">
+            <div><h1 align="center" style="margin-top: -20px" >INICIO DE SESIÓN</h1></div>
         </div>
         
-        <div style="background-color: rgb(250,200,84); min-height: 400px; margin-top: -20px ">
+        <div style="background-color: rgb(250,200,84); min-height: 400px; margin-top: -20px " align="center">
             <h:form >
-                <p:layout>
+                <p:growl id="msgs" showDetail="true" />
+                <div align="center">
+                   <h:panelGrid columns="2" id="matchGrid" cellpadding="8" style=" margin-top:20px "> 
                     <p:outputLabel value="Nombre de usuario: *"/>
-                    <p:inputText  id="username"  value=""/>
-                    <p:password id="passw" />
-                    <p:button id="login" value="submit" />
-                </p:layout>
+                    <p:inputText  id="username"  value="#{UsuarioBean.userName}" required="true"/>
+                    <p:outputLabel value="Contraseña: *"/>
+                    <p:password id="password" value="#{UsuarioBean.password}" required="true"/>
+                    <p:commandButton icon="ui-icon-check" update="ingresar" actionListener="#{usuarioBean.ingresar(actionEvent)}" value="Aceptar" />
+                   </h:panelGrid>
+                </div>
             </h:form>
         </div>
         
