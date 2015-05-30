@@ -1,3 +1,5 @@
 /MainW/dist/
 /SistemaIntegradoDeSalud/build/
 /SistemaIntegradoDeSalud/dist/
+SistemaIntegradoDeSalud/nbproject/private/private.xml
+SistemaIntegradoDeSalud/src/java/beans/usuarioBean.java
