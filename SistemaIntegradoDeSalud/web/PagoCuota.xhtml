@@ -31,19 +31,19 @@
         <div>
         <h:form>
             <p:menu style="font-size: 16px">
-                        <p:menuitem url="faces/PagoCuota.xhtml" value="Pago cuota Moderadora"/>
-                        <p:menuitem url="faces/SolicitudCitas.xhtml" value="Solicitud de Citas"/>
-                        <p:menuitem url="faces/CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
-                        <p:menuitem url="faces/FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
-                        <p:menuitem url="faces/ActualizacionDatos.xhtml"  value="Actualizacion de Datos"/>
-                        <p:menuitem url="faces/CertificadoAfiliacion.xhtml" value="Certificado de Afiliacion"/>
-                        <p:menuitem url="faces/HistoriaClinica.xhtml" value="Historias Clinicas"/>
-                        <p:menuitem url="faces/Servicios.xhtml" value="Servicios Ips"/>
-                        <p:menuitem url="faces/Sucursales.xhtml" value="Sucursales"/>
-                        <p:menuitem url="faces/Dispositivos.xhtml" value="Dispositivos"/>
-                        <p:menuitem url="faces/Noticias.xhtml" value="Noticias y Eventos"/>
-                        <p:menuitem url="faces/SaldoDisponible.xhtml" value="Saldo Disponible"/>
-                        <p:menuitem url="faces/MovimientosBancarios.xhtml" value="Movimientos Bancarios"/>
+                        <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"  actionListener="#{pagoCuotaBean.llenar(actionEvent)}"/>
+                        <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
+                        <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
+                        <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
+                        <p:menuitem url="ActualizacionDatos.xhtml"  value="Actualizacion de Datos"/>
+                        <p:menuitem url="CertificadoAfiliacion.xhtml" value="Certificado de Afiliacion"/>
+                        <p:menuitem url="HistoriaClinica.xhtml" value="Historias Clinicas"/>
+                        <p:menuitem url="Servicios.xhtml" value="Servicios Ips"/>
+                        <p:menuitem url="Sucursales.xhtml" value="Sucursales"/>
+                        <p:menuitem url="Dispositivos.xhtml" value="Dispositivos"/>
+                        <p:menuitem url="Noticias.xhtml" value="Noticias y Eventos"/>
+                        <p:menuitem url="SaldoDisponible.xhtml" value="Saldo Disponible"/>
+                        <p:menuitem url="MovimientosBancarios.xhtml" value="Movimientos Bancarios"/>
                     </p:menu>
                
                 
@@ -60,13 +60,13 @@
                            <p:panel id="basic" style="margin-bottom:30px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px; margin-top:20px  ">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8">                   
                                     <h:outputLabel for="referencia" value="Referencia Cuota" />
-                                    <p:inputText id="referencia" value=""  disabled="true" required="true" />
+                                    <p:inputText id="referencia" value="#{pagoCuotaBean.referencia}"  disabled="true" required="true" />
                                     
                                     <h:outputLabel for="descripcion" value="Descripcion" />
-                                    <p:inputText id="descripcion" value=""  disabled="true" required="true" />
+                                    <p:inputText id="descripcion" value="#{pagoCuotaBean.descripcion}"  disabled="true" required="true" />
                                     
                                     <h:outputLabel for="valor" value="Valor a cancelar" />
-                                    <p:inputText id="valor" value=""  disabled="true" required="true" />
+                                    <p:inputText id="valor" value="#{pagoCuotaBean.valor}"  disabled="true" required="true" />
                                 </h:panelGrid>
                            </p:panel>
                             <p:panel id="basic2i" style="margin-bottom:100px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px ">
@@ -82,7 +82,7 @@
                                     <p:password id="contraseña" value=""   required="true" />
                                 </h:panelGrid>
                                      
-                                <p:commandButton  icon="ui-icon-check" update="matchGrid2" value="Aceptar" />
+                                <p:commandButton  icon="ui-icon-check" id="ajax" update="msgs" actionListener="#{pagoCuotaBean.pagoCuota(actionEvent)}"  value="Aceptar" />
                            </p:panel>
                             </h:form>
                         </div>
