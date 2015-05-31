@@ -60,7 +60,7 @@ public class pagoCuotaBean {
             if(data.rows(query, "valor").equals("1")){
             String pago = "insert into cuotas values (" + Integer.parseInt(data.rows(query, "id")) + "," + idCliente + "," + Integer.parseInt(data.rows(query, "valor")) + ", '" + data.rows(query, "fecha") + "');";
             String pago2="insert into valores values(1,"+numeroCuenta+","+valor+","+descripcion+");";
-            String actualiza= "update cuentas set saldo_cuenta= (saldo_cuenta-"+valor+") where numero_cuenta="+numeroCuenta+";";
+            String actualiza= "update cuentas set saldo_cuenta= (saldo_cuenta-"+valor+") where numero_cuenta="+Integer.parseInt(numeroCuenta)+";";
             FacesMessage prueba = new FacesMessage(FacesMessage.SEVERITY_INFO, "Informe","Pago registrado");
             }else{
                 FacesMessage prueba = new FacesMessage(FacesMessage.SEVERITY_WARN, "Informe","No hay saldo suficiente para la operacion");
