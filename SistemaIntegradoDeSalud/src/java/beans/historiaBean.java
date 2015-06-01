@@ -25,6 +25,18 @@ public class historiaBean {
     private char ips;
     
     public void historia(ActionEvent actionEvent){
+         ConnectionBean data = ConnectionBean.getInstance();
+         String query="select nombre_cliente, nombre_procedimiento"
+                 + "from cliente c, eps e, ips i, historias_ips hi, procedimientos p, descripciones d "
+                 + "where "
+                 + "c.id_eps=e.id_eps "
+                 + "and e.id_eps=i.id_eps "
+                 + "and i.id_ips=hi.id_ips "
+                 + "and hi.id_historia=d.id_historia "
+                 + "and d.id_procedimiento=p.id_procedimiento "
+                 + "and c.tipo_documento="+tipoDoc+" "
+                 + "and c.documento_cliente="+numDocPac+" "
+                 + "and i.nombre_ips="+ips+";";
         
     }
 
