@@ -20,14 +20,34 @@ public class actualizacionBean {
 
     private String nombres;
     private String apellidos;
-    private char tipoDoc;
+    private String tipoDoc;
     private int numeroDoc;
     private Date fechaNacimiento;
     private String direccionResidencia;
-    private int telefono;
+    private String telefono;
+    private int idCliente;
+    
+    
     
     public void actualizar(ActionEvent actionEvent){
+        ConnectionBean data = ConnectionBean.getInstance();
+        String query="select nombre_cliente nombre, tipo_documento tipo, documento_cliente documento, fecha_nacimiento fecha, direccion_cliente direccion, telefono_cliente telefono "
+                + "from clientes "
+                + "where id_cliente="+idCliente;
+        nombres=data.rows(query, "nombre");
+        tipoDoc=data.rows(query, "tipo");
+        numeroDoc= Integer.parseInt(data.rows(query, "documento"));
+        fechaNacimiento= Date.valueOf(data.rows(query, "fecha"));
+        direccionResidencia= data.rows(query,"direccion");
+        telefono= data.rows(query, "telefono");   
         
+        String actualizar= "update clientes set nombre_cliente='"+nombres
+                +"', tipo_documento='"+tipoDoc
+                +"',documento_cliente="+numeroDoc
+                +",fecha_nacimiento='"+fechaNacimiento
+                +"', direccion_cliente='"+direccionResidencia
+                +"',telefono_cliente='"+telefono
+                +"' where id_cliente="+idCliente;
     }
 
     public String getNombres() {
@@ -46,14 +66,7 @@ public class actualizacionBean {
         this.apellidos = apellidos;
     }
 
-    public char getTipoDoc() {
-        return tipoDoc;
-    }
-
-    public void setTipoDoc(char tipoDoc) {
-        this.tipoDoc = tipoDoc;
-    }
-
+  
     public int getNumeroDoc() {
         return numeroDoc;
     }
@@ -78,11 +91,11 @@ public class actualizacionBean {
         this.direccionResidencia = direccionResidencia;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
     
