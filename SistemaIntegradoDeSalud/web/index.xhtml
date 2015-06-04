@@ -11,9 +11,9 @@
    .ui-state-hover {background-color: rgb(74,77,79)}
 </style>
     
-    <body style="padding: 0px">
+    <body style="padding: 0px; font-family: arial">
         <div style="min-width:400px;min-height:150px;background-color: rgb(43,46,49)">
-            <div ><img style="width: 257px; height: 130px; margin-top: 20px; margin-left: 30px" src="images/fondo3.jpg"></img></div>
+            <div ><img style="width: 257px; height: 130px; margin-top: 20px; margin-left: 30px" src="images/LogoSIS.png"></img></div>
             <div ><h1 align="center" style="margin-top: -70px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
         </div>
         <div style="margin-top: -20px">
@@ -22,9 +22,9 @@
                 <p:menuitem value="INICIO" style="padding-top: 15px" url="index.xhtml" icon="ui-icon-home" />
                 <f:facet name="options">
                     <p:menubar>
-                        <p:submenu label="Perfil" icon="ui-icon-person" >
-                            <p:menuitem value="Cambiar contraseña" url="#"/>
-                            <p:menuitem value="Salir" url="#"/>
+                        <p:submenu label="#{indexBean.user}" icon="ui-icon-person" >
+                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"/>
+                            <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
                 </f:facet>
@@ -34,19 +34,19 @@
         <div>
         <h:form>
             <p:menu style="font-size: 16px">
-                        <p:menuitem url="faces/PagoCuota.xhtml" value="Pago cuota Moderadora"/>
-                        <p:menuitem url="faces/SolicitudCitas.xhtml" value="Solicitud de Citas"/>
-                        <p:menuitem url="faces/CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
-                        <p:menuitem url="faces/FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
-                        <p:menuitem url="faces/ActualizacionDatos.xhtml"  value="Actualizacion de Datos"/>
-                        <p:menuitem url="faces/CertificadoAfiliacion.xhtml" value="Certificado de Afiliacion"/>
-                        <p:menuitem url="faces/HistoriaClinica.xhtml" value="Historias Clinicas"/>
-                        <p:menuitem url="faces/Servicios.xhtml" value="Servicios Ips"/>
-                        <p:menuitem url="faces/Sucursales.xhtml" value="Sucursales"/>
-                        <p:menuitem url="faces/Dispositivos.xhtml" value="Dispositivos"/>
-                        <p:menuitem url="faces/Noticias.xhtml" value="Noticias y Eventos"/>
-                        <p:menuitem url="faces/SaldoDisponible.xhtml" value="Saldo Disponible"/>
-                        <p:menuitem url="faces/MovimientosBancarios.xhtml" value="Movimientos Bancarios"/>
+                        <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
+                        <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
+                        <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
+                        <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
+                        <p:menuitem url="ActualizacionDatos.xhtml"  value="Actualizacion de Datos"/>
+                        <p:menuitem url="CertificadoAfiliacion.xhtml" value="Certificado de Afiliacion"/>
+                        <p:menuitem url="HistoriaClinica.xhtml" value="Historias Clinicas"/>
+                        <p:menuitem url="Servicios.xhtml" value="Servicios Ips"/>
+                        <p:menuitem url="Sucursales.xhtml" value="Sucursales"/>
+                        <p:menuitem url="Dispositivos.xhtml" value="Dispositivos"/>
+                        <p:menuitem url="Noticias.xhtml" value="Noticias y Eventos"/>
+                        <p:menuitem url="SaldoDisponible.xhtml" value="Saldo Disponible"/>
+                        <p:menuitem url="MovimientosBancarios.xhtml" value="Movimientos Bancarios"/>
                     </p:menu>
                     
                

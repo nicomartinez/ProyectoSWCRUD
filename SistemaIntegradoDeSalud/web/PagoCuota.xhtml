@@ -3,14 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Sistema Integrado de Salud </title>
     </h:head>
     
     <body style="padding: 0px">
         <div style="min-width:400px;min-height:150px;background-color: rgb(43,46,49)">
-            <div ><img style="width: 100px; height: 100px; margin-top: 20px; margin-left: 30px" src="images/fondo3.jpg"></img></div>
+            <div ><img style="width: 257px; height: 130px; margin-top: 20px; margin-left: 30px" src="images/LogoSIS.png"></img></div>
             <div ><h1 align="center" style="margin-top: -70px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
         </div>
         <div style="margin-top: -20px">
@@ -19,9 +20,9 @@
                 <p:menuitem value="INICIO" style="padding-top: 15px" url="index.xhtml" icon="ui-icon-home" />
                 <f:facet name="options">
                     <p:menubar>
-                        <p:submenu label="Perfil" icon="ui-icon-person" >
+                        <p:submenu label="#{indexBean.user}" icon="ui-icon-person" >
                             <p:menuitem value="Cambiar contraseña" url="#"/>
-                            <p:menuitem value="Salir" url="#"/>
+                            <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
                 </f:facet>
@@ -31,7 +32,7 @@
         <div>
         <h:form>
             <p:menu style="font-size: 16px">
-                        <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"  actionListener="#{pagoCuotaBean.llenar(actionEvent)}"/>
+                        <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
                         <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
                         <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
                         <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
@@ -74,15 +75,14 @@
                                     <h:panelGrid columns="2" id="matchGrid2" cellpadding="8">  
                                     
                                     
-                                    
                                     <h:outputLabel for="cuenta" value="Numero de cuenta" />
-                                    <p:inputText id="cuenta" value=""   required="true" />
-                                    
-                                    <h:outputLabel for="contraseña" value="Contraseña" />
-                                    <p:password id="contraseña" value=""   required="true" />
+                                    <p:inputText id="cuenta" value="#{pagoCuotaBean.numeroCuenta}" required="true"/>
+                                    <h:outputLabel for="contrasenia" value="Contraseña" />
+                                    <p:password id="contrasenia" value="#{pagoCuotaBean.contrasenia}" required="true"/>
                                 </h:panelGrid>
                                      
-                                <p:commandButton  icon="ui-icon-check" id="ajax" update="msgs" actionListener="#{pagoCuotaBean.pagoCuota(actionEvent)}"  value="Aceptar" />
+                                <p:commandButton  icon="ui-icon-check" update="msgs"
+                                          actionListener="#{pagoCuotaBean.pagoCuota(actionEvent)}"  value="Aceptar" />
                            </p:panel>
                             </h:form>
                         </div>

@@ -7,23 +7,23 @@
         <title>Sistema Integrado de Salud </title>
     </h:head>
     
-    <h:body style="margin-top: 0px">
+    <h:body style="margin-top: 0px; font-family: arial">
         <div style="min-width:400px;min-height:200px;background-color: rgb(43,46,49)">
-          <div ><img style="width: 257px; height: 130px; margin-top: 40px; margin-left: 30px" src="images/fondo3.jpg"></img></div>
-          <div ><h1 align="center" style="margin-top: -90px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
+          <div ><img style="width: 257px; height: 130px; margin-top: 40px; margin-left: 30px" src="images/LogoSIS.png"></img></div>
+          <div ><h1 align="center" style="margin-top: -90px;color: rgb(255,255,255);">SISTEMA INTEGRADO DE SALUD</h1></div>
         </div>
         <div style="background-color: rgb(235,119,14); height: 60px;">
-            <div><h1 align="center" style="margin-top: -20px" >INICIO DE SESIÓN</h1></div>
+            <div><h1 align="center" style="margin-top: -20px;font-size: 20px;padding-top: 7px">INICIO DE SESIÓN</h1></div>
         </div>
         
-        <div style="background-color: rgb(250,200,84); min-height: 400px; margin-top: -20px " align="center">
+        <div style="background-color: rgb(250,200,84); min-height: 350px; margin-top: -20px " align="center">
             <div align="center">
             <h:form >
                 <p:growl id="msgs" showDetail="true" />
-                <p:panel>
-                   <h:panelGrid columns="2" cellpadding="8" style=" margin-top:20px "> 
+                <p:panel style="background-color: rgb(250,200,84); border-color: rgb(250,200,84)">
+                   <h:panelGrid columns="2" cellpadding="8" style=" margin-top:20px;"> 
                     <h:outputLabel value="Nombre de usuario: *"/>
-                    <p:inputText  id="username"  value="#{usuarioBean.userName}"/>
+                    <p:inputText  id="userName"  value="#{usuarioBean.userName}"/>
                     <h:outputLabel value="Contraseña: *"/>
                     <p:password id="password" value="#{usuarioBean.password}" />
                     <p:commandButton icon="ui-icon-check" id="ajax" update="msgs" actionListener="#{usuarioBean.ingresar(actionEvent)}" value="Aceptar" />

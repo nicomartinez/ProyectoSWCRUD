@@ -10,7 +10,7 @@
     
     <body style="padding: 0px">
         <div style="min-width:400px;min-height:150px;background-color: rgb(43,46,49)">
-            <div ><img style="width: 100px; height: 100px; margin-top: 20px; margin-left: 30px" src="images/fondo3.jpg"></img></div>
+            <div ><img style="width: 257px; height: 130px; margin-top: 20px; margin-left: 30px" src="images/LogoSIS.png"></img></div>
             <div ><h1 align="center" style="margin-top: -70px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
         </div>
         <div style="margin-top: -20px">
@@ -19,9 +19,9 @@
                 <p:menuitem value="INICIO" style="padding-top: 15px" url="index.xhtml" icon="ui-icon-home" />
                 <f:facet name="options">
                     <p:menubar>
-                        <p:submenu label="Perfil" icon="ui-icon-person" >
+                        <p:submenu label="#{indexBean.user}" icon="ui-icon-person" >
                             <p:menuitem value="Cambiar contraseña" url="#"/>
-                            <p:menuitem value="Salir" url="#"/>
+                            <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
                 </f:facet>
@@ -30,9 +30,19 @@
         </div>
         <div>
         <h:form>
-            <p:menu style="font-size: 16px">
-                   
-                        <p:menuitem  value="Pago cuota Moderadora"  actionListener="#{pagoCuotaBean.llenar(actionEvent)}"/>
+            <style>
+                .sticky {
+                  position: fixed;
+                  top: 0;
+                }
+                .header {
+                    padding: 0px 0;
+                }
+            </style>
+            <div class="header">
+
+            <p:menu style="font-size: 16px; min-height: 553px">
+                <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
                         <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
                         <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
                         <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
@@ -46,8 +56,18 @@
                         <p:menuitem url="SaldoDisponible.xhtml" value="Saldo Disponible"/>
                         <p:menuitem url="MovimientosBancarios.xhtml" value="Movimientos Bancarios"/>
                     </p:menu>
-               
-                
+               </div>
+            <script>
+                var header = document.querySelector('.header');
+                var origOffsetY = header.offsetTop;
+
+                function onScroll(e) {
+                  window.scrollY >= origOffsetY ? header.classList.add('sticky') :
+                                                  header.classList.remove('sticky');
+                }
+
+                document.addEventListener('scroll', onScroll);
+            </script>
                
             <div style="width:1114px; height:65px; position:absolute; left:226px;top:222px">
                        <div style="width:1114px;height:65px;background-color: rgb(65,143,43);position: absolute">

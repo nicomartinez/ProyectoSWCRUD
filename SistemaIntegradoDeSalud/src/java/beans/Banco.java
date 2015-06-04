@@ -16,6 +16,8 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class Banco {
 
+    
+    
     /**
      * Creates a new instance of Banco
      */

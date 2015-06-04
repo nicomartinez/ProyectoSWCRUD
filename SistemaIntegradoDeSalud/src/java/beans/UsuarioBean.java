@@ -13,7 +13,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,28 +29,23 @@ public class usuarioBean {
     private String password;
     
     public void ingresar(ActionEvent actionEvent){
+        Client client = Client.getInstance();
         ConnectionBean data = ConnectionBean.getInstance(); // Instancia de la conexion a BD.
         FacesMessage prueba = new FacesMessage(FacesMessage.SEVERITY_INFO, "Lo tomo", userName);
-        String query = "select * from cliente where nombre_cliente='"+userName+"';"; //Consulta.
+        String query = "select * from usuarios where nombre_usuario='"+userName+"';"; //Consulta.
         FacesMessage message = null;    //Mensaje en pantalla.
-        if(userName.length() > 0 && password.length() > 0 ) {//Campos no vacios, aunque en el xhtml también se valida.
-            //Se valida que los valores digitados en los campos de la interfaz
-            //correspondan a valores existentes en la base de datos.
-            if(userName.equals(data.rows(query, "nombre_cliente"))&&password.equals(data.rows(query, "contrasenia"))){
-                //Todas las validaciones permiten ingresar.
-                message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", userName);
-                try {
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("faces/index.xhtml");
-                } catch (IOException ex) {
-                    Logger.getLogger(usuarioBean.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }else{
-                //La validación no se encontró, los datos no corresponden a valores en la BD.
-                message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Datos invalidos!");
+        if(userName.equals(data.rows(query, "nombre_usuario"))&&
+                password.equals(data.rows(query, "contrasenia"))){
+            client.setIdUser(Integer.parseInt(data.rows(query, "id_usuario")));
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", userName);
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("faces/index.xhtml");
+            } catch (IOException ex) {
+                Logger.getLogger(usuarioBean.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-            //Campos vacios.
-            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Advertencia", "Los Campos no deben estar vacios!");
+        }else{
+            //La validación no se encontró, los datos no corresponden a valores en la BD.
+            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Datos invalidos!");
         }
         //Desplegar mensaje.
         FacesContext.getCurrentInstance().addMessage(null, message);
