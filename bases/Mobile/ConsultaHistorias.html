@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Login</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+   <h1 class="text-center">Nombre del Sistema</h1>
+     <div style="display:inline-block; width:100%">
+  <button type="button" class="btn btn-default pull-left">Inicio</button>
+  <button type="button" class="btn btn-default pull-right">Perfil</button>
+     </div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <p class="navbar-brand" id="actual">Consulta Historia Clinica</p>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="itemMenu"><a href="Login.html">Login</a></li>
+            <li class="itemMenu"><a href="#">Pago Cuota moderadora</a></li>
+            <li class="itemMenu"><a href="#">Solicitud de Citas</a></li>
+            <li class="itemMenu"><a href="#">Cancelación de Citas</a></li>
+            <li class="itemMenu"><a href="#">Farmacias y laboratorios</a></li>
+            <li class="itemMenu"><a href="#">Actualización de datos</a></li>
+            <li class="itemMenu"><a href="#">Certificados de afiliación</a></li>
+            <li class="active itemMenu"><a href="ConsultaHistorias.html">Historias Clinicas <span class="sr-only">(current)</span></a></li>
+            <li class="itemMenu"><a href="ConsultaServicios.html">Servicios IPS</a></li>
+            <li class="itemMenu"><a href="Sucursales.html">Sucursales</a></li>
+            <li class="itemMenu"><a href="Dispositivos.html">Dispositivos</a></li>
+            <li class="itemMenu"><a href="NoticiasEventos.html">Noticias y Eventos</a></li>
+            <li class="itemMenu"><a href="SaldoDisponible.html">Saldo Disponible</a></li>
+            <li class="itemMenu"><a href="MovimientosBancarios.html">Movimientos Bancarios</a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+	<div class="container-fluid">
+      <div class="well">
+        <form>
+          <h4>Datos Solicitante</h4>
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre" />
+          </div>
+          <div class="form-group">
+            <label for="documento">Documento</label>
+            <input type="number" class="form-control" id="documento" placeholder="Documento" />
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input type="number" class="form-control" id="telefono" placeholder="Telefono" />
+          </div>
+          <hr style="border-color: black; border-style: dashed;">
+
+          <h4>Datos Solicitante</h4>
+          
+          <div class="col-xs-12">
+            <label for="tipoDocumento" class="col-xs-4 control-label">Tipo de Documento</label>
+            <div class="col-xs-8">
+              <select class="form-control">
+                <option value="">Cedula</option>
+                <option value="">TI</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="documentoSolicitante">Documento</label>
+            <input type="number" class="form-control" id="documentoSol" placeholder="Documento" />
+          </div>
+          <div class="col-xs-12">
+            <label for="tipoDocumento" class="col-xs-4 control-label">IPS</label>
+            <div class="col-xs-8">
+              <select class="form-control">
+                <option value="">Clinica</option>
+                <option value="">TI</option>
+              </select>
+            </div>
+          </div>
+          
+          <br>
+          
+          <hr style="border-color: black; border-style: dashed; width:100%;">
+          
+           <div class="text-center">
+            <button type="submit" class="btn btn-default">Aceptar</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+</body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</html>
