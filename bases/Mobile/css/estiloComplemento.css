@@ -1,0 +1,206 @@
+body, .amarillo {
+  background: #fac854;
+  color:black
+}
+
+.txtNegrita {
+  font-weight: bold;
+  color: black;
+}
+
+.nameSistema {
+  margin-top: 0;
+  background: #2f2b31;
+  color: white;
+  width: 100%;
+  margin-top: -20px;
+  height: 100%;
+}
+
+.btnIniPer {
+  background: #4a4d4f;
+}
+
+.btnIniPer .btn-default {
+  background: rgba(0,0,0,0);
+  color: black;
+}
+
+.btn-Inicio {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.btn-Inicio, .btn-Perfil {
+  border: none;
+}
+
+.principal, .well {
+  background: #fac854;
+  border-style:none;
+  box-shadow:none;
+  width: 100%;
+}
+
+.noticias {
+  background: #eb790e;
+  border-style:none;
+  box-shadow:none;
+  width: 100%;
+}
+
+.navbar, .naranja {
+  background: #eb790e;
+  border-style: none;
+  margin-top: -5px;
+}
+
+.naranja {
+  
+}
+
+.navbar-toggle {
+  border-style: none;
+  color: #f5bc86;
+  margin-top: 10px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #f5bc86;
+  height: 6px;
+  width: 40px;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar {
+  background-color: #eb790e;
+}
+
+.itemMenu {
+  background: white;
+}
+
+.itemMenu:hover {
+  background: #ba2626;
+}
+
+.movimientos {
+  background: #3e6ede;
+  color: black;
+}
+
+.movimientos .navbar-toggle .icon-bar{
+  background-color: #9eb6ee;
+}
+
+.movimientos .navbar-toggle:hover .icon-bar{
+  background-color: #3e6ede;
+}
+
+.active {
+  background: #ba2626;
+}
+
+.azul {
+  background: #92bddb;
+}
+
+.tituloFondoBlanco {
+  background-color: white;
+  border: solid 4px black;
+}
+
+.azulHeaderTabla {
+  background: #3e6ede;
+}
+
+.tablaDefault tr, .tablaDefault td {
+  border: solid 2px black;
+}
+
+.azulHeaderTabla tr, .azulHeaderTabla th {
+  border: solid 2px black;
+}
+
+
+.verde {
+  background: #9fc06d;
+}
+
+.barVerde {
+  background: #41902b;
+  color: black;
+}
+
+.barVerde .navbar-toggle .icon-bar{
+  background-color: #a0c795;
+}
+
+.barVerde .navbar-toggle:hover .icon-bar{
+  background-color: #41902b;
+}
+
+.panel {
+  border: 1px solid black;
+}
+
+.verdeInfo {
+  background-color: #41902b;
+  color: black;
+  font-weight: bold;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.table tr, .table td, .table th, .table thead, .table tbody {
+  border: 2px solid black;
+}
+
+.tabla {
+  background: white;
+}
+
+.headertablaVerde {
+  background: #008000;
+  color: black;
+  border: 2px solid black;
+}
+
+.blanco {
+  background: #fff;
+}
+
+.rojo {
+  background: #eb6b5a;
+}
+
+.barRoja {
+  background-color: #bb2626;
+}
+
+.barRoja .navbar-toggle .icon-bar{
+  background-color: #dd9292;
+}
+
+.barRoja .navbar-toggle:hover .icon-bar{
+  background-color: #bb2626;
+}
+
+.rojoInfo {
+  background-color: #ba2626;
+  color: black;
+  font-weight: bold;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.navLogin {
+  background-color: #4a4d4f;
+}
+
+.navLogin .navbar-toggle .icon-bar{
+  background-color: #2f2b31;
+}
+
+.navLogin .navbar-toggle:hover .icon-bar{
+  background-color: #4a4d4f;
+}

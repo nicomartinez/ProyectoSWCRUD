@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Movimientos</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/estiloComplemento.css">
 </head>
-<body>
-   <h1 class="text-center">Nombre del Sistema</h1>
-     <div style="display:inline-block; width:100%">
-  <button type="button" class="btn btn-default pull-left">Inicio</button>
-  <button type="button" class="btn btn-default pull-right">Perfil</button>
-     </div>
-    <nav class="navbar navbar-default">
+<body class="azul">
+   <div class="nameSistema">
+      <h1 class="text-center ">Nombre del Sistema</h1>
+    </div>
+    <div style="display:inline-block; width:100%" class="btnIniPer">
+      <button type="button" class="btn btn-default pull-left btn-Inicio">Inicio</button>
+      <button type="button" class="btn btn-default pull-right btn-Perfil">Perfil</button>
+    </div>
+    <nav class="navbar navbar-default movimientos">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -22,19 +25,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <p class="navbar-brand" id="actual">Movimientos Bancarios</p>
+          <p class="navbar-brand" style="color: black">Movimientos Bancarios</p>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="itemMenu"><a href="Login.html">Login</a></li>
-            <li class="itemMenu"><a href="#">Pago Cuota moderadora</a></li>
-            <li class="itemMenu"><a href="#">Solicitud de Citas</a></li>
-            <li class="itemMenu"><a href="#">Cancelación de Citas</a></li>
-            <li class="itemMenu"><a href="#">Farmacias y laboratorios</a></li>
-            <li class="itemMenu"><a href="#">Actualización de datos</a></li>
-            <li class="itemMenu"><a href="#">Certificados de afiliación</a></li>
+            <li class="itemMenu"><a href="NuevaContrasena.html">Cambio Contraseña</a></li>
+            <li class="itemMenu"><a href="PagoCuota.html">Pago Cuota moderadora</a></li>
+            <li class="itemMenu"><a href="SolicitudCitas.html">Solicitud de Citas</a></li>
+            <li class="itemMenu"><a href="CancelacionCitas.html">Cancelación de Citas</a></li>
+            <li class="itemMenu"><a href="ConsultaFarmacias.html">Farmacias y laboratorios</a></li>
+            <li class="itemMenu"><a href="ActualizacionDatos.html">Actualización de datos</a></li>
+            <li class="itemMenu"><a href="CertificadoAfiliacion.html">Certificados de afiliación</a></li>
             <li class="itemMenu"><a href="ConsultaHistorias.html">Historias Clinicas</a></li>
             <li class="itemMenu"><a href="ConsultaServicios.html">Servicios IPS</a></li>
             <li class="itemMenu"><a href="Sucursales.html">Sucursales</a></li>
@@ -48,12 +52,12 @@
       </div><!-- /.container-fluid -->
     </nav>
 	<div class="container-fluid">
-      <div class="well">
+      <div class="well azul">
         <div class="page-header">
-          <h1 class="text-center">Movimientos</h1>
+          <h1 class="text-center tituloFondoBlanco">Movimientos</h1>
         </div>
-        <table class="table table-bordered table-responsive">
-          <thead>
+        <table class="table table-responsive tablaDefault">
+          <thead class="azulHeaderTabla">
             <tr>
               <th>Fecha</th>
               <th>Transacción</th> 
@@ -63,22 +67,22 @@
           </thead>
           <tbody>
             <tr>
-              <th>Lorem</th>
-              <th>ipsum</th>
-              <th>dolor</th>
-              <th>sit</th>
+              <td>Lorem</td>
+              <td>ipsum</td>
+              <td>dolor</td>
+              <td>sit</td>
             </tr>
             <tr>
-              <th>consectetur</th>
-              <th>adipisicing</th>
-              <th>elit</th>
-              <th>Non</th>
+              <td>consectetur</td>
+              <td>adipisicing</td>
+              <td>elit</td>
+              <td>Non</td>
             </tr>
             <tr>
-              <th>excepturi</th>
-              <th>inventore</th>
-              <th>sit</th>
-              <th>fugiat</th>
+              <td>excepturi</td>
+              <td>inventore</td>
+              <td>sit</td>
+              <td>fugiat</td>
             </tr>
           </tbody>
         </table>

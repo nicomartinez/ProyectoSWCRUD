@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Login</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/estiloComplemento.css">
 </head>
 <body>
-   <h1 class="text-center">Nombre del Sistema</h1>
-     <div style="display:inline-block; width:100%">
-  <button type="button" class="btn btn-default pull-left">Inicio</button>
-  <button type="button" class="btn btn-default pull-right">Perfil</button>
-     </div>
+    <div class="nameSistema">
+      <h1 class="text-center ">Nombre del Sistema</h1>
+    </div>
+  <div style="display:inline-block; width:100%" class="btnIniPer">
+    <button type="button" class="btn btn-default pull-left btn-Inicio">Inicio</button>
+    <button type="button" class="btn btn-default pull-right btn-Perfil">Perfil</button>
+  </div>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -22,19 +25,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <p class="navbar-brand" id="actual">Inicio de Sesión</p>
+          <p class="navbar-brand" style="color: black">Inicio de Sesión</p>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active itemMenu"><a href="Login.html">Login <span class="sr-only">(current)</span></a></li>
-            <li class="itemMenu"><a href="#">Pago Cuota moderadora</a></li>
-            <li class="itemMenu"><a href="#">Solicitud de Citas</a></li>
-            <li class="itemMenu"><a href="#">Cancelación de Citas</a></li>
-            <li class="itemMenu"><a href="#">Farmacias y laboratorios</a></li>
-            <li class="itemMenu"><a href="#">Actualización de datos</a></li>
-            <li class="itemMenu"><a href="#">Certificados de afiliación</a></li>
+            <li class="itemMenu"><a href="NuevaContrasena.html">Cambio Contraseña</a></li>
+            <li class="itemMenu"><a href="PagoCuota.html">Pago Cuota moderadora</a></li>
+            <li class="itemMenu"><a href="SolicitudCitas.html">Solicitud de Citas</a></li>
+            <li class="itemMenu"><a href="CancelacionCitas.html">Cancelación de Citas</a></li>
+            <li class="itemMenu"><a href="ConsultaFarmacias.html">Farmacias y laboratorios</a></li>
+            <li class="itemMenu"><a href="ActualizacionDatos.html">Actualización de datos</a></li>
+            <li class="itemMenu"><a href="CertificadoAfiliacion.html">Certificados de afiliación</a></li>
             <li class="itemMenu"><a href="ConsultaHistorias.html">Historias Clinicas</a></li>
             <li class="itemMenu"><a href="ConsultaServicios.html">Servicios IPS</a></li>
             <li class="itemMenu"><a href="Sucursales.html">Sucursales</a></li>
@@ -47,65 +51,21 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-	<div class="container-fluid">
+	<div class="container-fluid principal">
       <div class="well">
-        <form action="#" class="form-horizontal">
+        <form>
           <div class="form-group">
-            <label for="ips" class="col-xs-2 control-label">IPS</label>
-            <div class="col-xs-10">
-              <select class="form-control">
-                <option value="">Opción 1</option>
-                <option value="">Opción 2</option>
-                <option value="">Opción 3</option>
-                <option value="">Opción 4</option>
-              </select>
-            </div>
+            <label for="nombreUsuario">Nombre de Usuario</label>
+            <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre de Usuario">
           </div>
           <div class="form-group">
-            <label for="ubicacion" class="col-xs-2 control-label">Ubicacion</label>
-            <div class="col-xs-10">
-              <select class="form-control">
-                <option value="">Opción 1</option>
-                <option value="">Opción 2</option>
-                <option value="">Opción 3</option>
-                <option value="">Opción 4</option>
-              </select>
-            </div>
+            <label for="contraseña">Contraseña</label>
+            <input type="password" class="form-control" id="Contrasena" placeholder="Contraseña">
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-default">Aceptar</button>
           </div>
         </form>
-        <br>
-        <!-- Noticias !-->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title text-center">Servicios</h3>
-          </div>
-          <div class="panel-body">
-           <!-- Lista de Noticias !-->
-            
-             <div class="panel panel-success">
-              <div class="panel-heading">Servicio 1</div>
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem atque vitae, non, veritatis asperiores consequatur ipsum saepe ratione. Blanditiis facere perspiciatis porro voluptatibus nostrum, sequi quos in aliquid accusamus!
-              </div>
-            </div>
-            
-            <div class="panel panel-success">
-              <div class="panel-heading">Servicio 2</div>
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem atque vitae, non, veritatis asperiores consequatur ipsum saepe ratione. Blanditiis facere perspiciatis porro voluptatibus nostrum, sequi quos in aliquid accusamus!
-              </div>
-            </div>
-            
-            <div class="panel panel-success">
-              <div class="panel-heading">Servicio 3</div>
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem atque vitae, non, veritatis asperiores consequatur ipsum saepe ratione. Blanditiis facere perspiciatis porro voluptatibus nostrum, sequi quos in aliquid accusamus!
-              </div>
-            </div>
-            
-            
-          </div>
-        </div>
       </div>
     </div>
 </body>

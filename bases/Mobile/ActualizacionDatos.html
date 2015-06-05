@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de Servicios</title>
+    <title>Actualización de datos</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/estiloComplemento.css">
+    <link rel="stylesheet" href="css/estiloComplemento.css">
 </head>
-<body class="verde">
-   <div class="nameSistema">
+<body class="rojo">
+    <div class="nameSistema">
       <h1 class="text-center ">Nombre del Sistema</h1>
     </div>
     <div style="display:inline-block; width:100%" class="btnIniPer">
       <button type="button" class="btn btn-default pull-left btn-Inicio">Inicio</button>
       <button type="button" class="btn btn-default pull-right btn-Perfil">Perfil</button>
      </div>
-    <nav class="navbar navbar-default barVerde">
+    <nav class="navbar navbar-default barRoja">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -25,22 +25,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <p class="navbar-brand" style="color:black">Consulta de Servicios</p>
+          <p class="navbar-brand" style="color:black">Actualización de datos</p>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav">        
             <li class="itemMenu"><a href="Login.html">Login</a></li>
             <li class="itemMenu"><a href="NuevaContrasena.html">Cambio Contraseña</a></li>
             <li class="itemMenu"><a href="PagoCuota.html">Pago Cuota moderadora</a></li>
             <li class="itemMenu"><a href="SolicitudCitas.html">Solicitud de Citas</a></li>
             <li class="itemMenu"><a href="CancelacionCitas.html">Cancelación de Citas</a></li>
             <li class="itemMenu"><a href="ConsultaFarmacias.html">Farmacias y laboratorios</a></li>
-            <li class="itemMenu"><a href="ActualizacionDatos.html">Actualización de datos</a></li>
+            <li class="active itemMenu"><a href="ActualizacionDatos.html">Actualización de datos <span class="sr-only">(current)</span></a></li>
             <li class="itemMenu"><a href="CertificadoAfiliacion.html">Certificados de afiliación</a></li>
             <li class="itemMenu"><a href="ConsultaHistorias.html">Historias Clinicas</a></li>
-            <li class="active itemMenu"><a href="ConsultaServicios.html">Servicios IPS <span class="sr-only">(current)</span></a></li>
+            <li class="itemMenu"><a href="ConsultaServicios.html">Servicios IPS</a></li>
             <li class="itemMenu"><a href="Sucursales.html">Sucursales</a></li>
             <li class="itemMenu"><a href="Dispositivos.html">Dispositivos</a></li>
             <li class="itemMenu"><a href="NoticiasEventos.html">Noticias y Eventos</a></li>
@@ -52,66 +52,67 @@
       </div><!-- /.container-fluid -->
     </nav>
 	<div class="container-fluid">
-      <div class="well verde">
-        <form action="#" class="form-horizontal">
+      <div class="well rojo">
+        <form>
           <div class="form-group">
-            <label for="ips" class="col-xs-3 control-label">IPS</label>
-            <div class="col-xs-9">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre" />
+          </div>
+          <div class="form-group">
+            <label for="documento">Apellidos</label>
+            <input type="text" class="form-control" id="idusuario" placeholder="Apellidos" />
+          </div>
+          <div class="col-xs-12">
+            <label for="tipoDocumento" class="col-xs-4 control-label">Tipo de Documento</label>
+            <div class="col-xs-8">
               <select class="form-control">
-                <option value="">Opción 1</option>
-                <option value="">Opción 2</option>
-                <option value="">Opción 3</option>
-                <option value="">Opción 4</option>
+                <option value="">Cedula</option>
+                <option value="">TI</option>
               </select>
             </div>
           </div>
           <div class="form-group">
-            <label for="ubicacion" class="col-xs-3 control-label">Ubicación</label>
-            <div class="col-xs-9">
+            <label for="documentoSolicitante">Documento</label>
+            <input type="number" class="form-control" id="documentoSol" placeholder="Documento" />
+          </div>
+          
+           <div class="col-xs-12 form-group">
+            <label for="fechaNacimiento" class="col-xs-3 control-label">Fecha de Nacimiento</label>
+            <div class="col-xs-3">
               <select class="form-control">
-                <option value="">Opción 1</option>
-                <option value="">Opción 2</option>
-                <option value="">Opción 3</option>
-                <option value="">Opción 4</option>
+                <option value="">Mes</option>
+                <option value="">TI</option>
+              </select>
+            </div>
+            <div class="col-xs-3">
+              <select class="form-control">
+                <option value="">Dia</option>
+                <option value="">TI</option>
+              </select>
+            </div>
+            <div class="col-xs-3">
+              <select class="form-control">
+                <option value="">Año</option>
+                <option value="">TI</option>
               </select>
             </div>
           </div>
+          
+          <div class="form-group">
+            <label for="dirección">Dirección</label>
+            <input type="number" class="form-control" id="direccion" placeholder="Dirección" />
+          </div>
+          
+          <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input type="number" class="form-control" id="telefono" placeholder="Telefono" />
+          </div>
+          
+           <div class="text-center">
+            <button type="submit" class="btn btn-default">Actualizar</button>
+          </div>
+          
         </form>
-        <br>
-        
-        <!-- Servicios !-->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title text-center">Servicios</h3>
-          </div>
-          <div class="panel-body">
-           <!-- Lista de Servicios !-->
-            
-             <div class="panel">
-              <div class="panel-heading verdeInfo">Servicio 1</div>
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem atque vitae, non, veritatis asperiores consequatur ipsum saepe ratione. Blanditiis facere perspiciatis porro voluptatibus nostrum, sequi quos in aliquid accusamus!
-              </div>
-            </div>
-            
-            <div class="panel">
-              <div class="panel-heading verdeInfo">Servicio 2</div>
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem atque vitae, non, veritatis asperiores consequatur ipsum saepe ratione. Blanditiis facere perspiciatis porro voluptatibus nostrum, sequi quos in aliquid accusamus!
-              </div>
-            </div>
-            
-            <div class="panel">
-              <div class="panel-heading verdeInfo">Servicio 3</div>
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem atque vitae, non, veritatis asperiores consequatur ipsum saepe ratione. Blanditiis facere perspiciatis porro voluptatibus nostrum, sequi quos in aliquid accusamus!
-              </div>
-            </div>
-            
-            
-          </div>
-        </div>
-        
       </div>
     </div>
 </body>

@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de Servicios</title>
+    <title>Página Login</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/estiloComplemento.css">
+    <link rel="stylesheet" href="css/estiloComplemento.css">
 </head>
-<body class="verde">
-   <div class="nameSistema">
+<body class="rojo">
+    <div class="nameSistema">
       <h1 class="text-center ">Nombre del Sistema</h1>
     </div>
     <div style="display:inline-block; width:100%" class="btnIniPer">
       <button type="button" class="btn btn-default pull-left btn-Inicio">Inicio</button>
       <button type="button" class="btn btn-default pull-right btn-Perfil">Perfil</button>
      </div>
-    <nav class="navbar navbar-default barVerde">
+    <nav class="navbar navbar-default barRoja">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -25,7 +25,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <p class="navbar-brand" style="color:black">Consulta de Servicios</p>
+          <p class="navbar-brand" style="color: black">Cancelación de citas</p>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,12 +35,12 @@
             <li class="itemMenu"><a href="NuevaContrasena.html">Cambio Contraseña</a></li>
             <li class="itemMenu"><a href="PagoCuota.html">Pago Cuota moderadora</a></li>
             <li class="itemMenu"><a href="SolicitudCitas.html">Solicitud de Citas</a></li>
-            <li class="itemMenu"><a href="CancelacionCitas.html">Cancelación de Citas</a></li>
+            <li class="active itemMenu"><a href="CancelacionCitas.html">Cancelación de Citas <span class="sr-only">(current)</span></a></li>
             <li class="itemMenu"><a href="ConsultaFarmacias.html">Farmacias y laboratorios</a></li>
             <li class="itemMenu"><a href="ActualizacionDatos.html">Actualización de datos</a></li>
             <li class="itemMenu"><a href="CertificadoAfiliacion.html">Certificados de afiliación</a></li>
             <li class="itemMenu"><a href="ConsultaHistorias.html">Historias Clinicas</a></li>
-            <li class="active itemMenu"><a href="ConsultaServicios.html">Servicios IPS <span class="sr-only">(current)</span></a></li>
+            <li class="itemMenu"><a href="ConsultaServicios.html">Servicios IPS</a></li>
             <li class="itemMenu"><a href="Sucursales.html">Sucursales</a></li>
             <li class="itemMenu"><a href="Dispositivos.html">Dispositivos</a></li>
             <li class="itemMenu"><a href="NoticiasEventos.html">Noticias y Eventos</a></li>
@@ -52,11 +52,11 @@
       </div><!-- /.container-fluid -->
     </nav>
 	<div class="container-fluid">
-      <div class="well verde">
-        <form action="#" class="form-horizontal">
+      <div class="well rojo">
+        <form>
           <div class="form-group">
-            <label for="ips" class="col-xs-3 control-label">IPS</label>
-            <div class="col-xs-9">
+            <label for="tipoCita" class="col-xs-2 control-label">Tipo de Cita</label>
+            <div class="col-xs-10">
               <select class="form-control">
                 <option value="">Opción 1</option>
                 <option value="">Opción 2</option>
@@ -65,53 +65,28 @@
               </select>
             </div>
           </div>
-          <div class="form-group">
-            <label for="ubicacion" class="col-xs-3 control-label">Ubicación</label>
-            <div class="col-xs-9">
-              <select class="form-control">
-                <option value="">Opción 1</option>
-                <option value="">Opción 2</option>
-                <option value="">Opción 3</option>
-                <option value="">Opción 4</option>
-              </select>
-            </div>
+          
+          <table class="table table-responsive blanco">
+            <thead class="rojoInfo">
+              <tr>
+                <th class="text-center">Dia</th>
+                <th class="text-center">Hora</th>
+                <th class="text-center">Doctor</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Lorem</th>
+                <th>ipsum</th>
+                <th>ipsum</th>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div class="text-center">
+            <button type="submit" class="btn btn-default">Cancelar Cita</button>
           </div>
         </form>
-        <br>
-        
-        <!-- Servicios !-->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title text-center">Servicios</h3>
-          </div>
-          <div class="panel-body">
-           <!-- Lista de Servicios !-->
-            
-             <div class="panel">
-              <div class="panel-heading verdeInfo">Servicio 1</div>
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem atque vitae, non, veritatis asperiores consequatur ipsum saepe ratione. Blanditiis facere perspiciatis porro voluptatibus nostrum, sequi quos in aliquid accusamus!
-              </div>
-            </div>
-            
-            <div class="panel">
-              <div class="panel-heading verdeInfo">Servicio 2</div>
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem atque vitae, non, veritatis asperiores consequatur ipsum saepe ratione. Blanditiis facere perspiciatis porro voluptatibus nostrum, sequi quos in aliquid accusamus!
-              </div>
-            </div>
-            
-            <div class="panel">
-              <div class="panel-heading verdeInfo">Servicio 3</div>
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem atque vitae, non, veritatis asperiores consequatur ipsum saepe ratione. Blanditiis facere perspiciatis porro voluptatibus nostrum, sequi quos in aliquid accusamus!
-              </div>
-            </div>
-            
-            
-          </div>
-        </div>
-        
       </div>
     </div>
 </body>

@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saldo Disponible</title>
+    <title>Certificado de Afiliación</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/estiloComplemento.css">
 </head>
-<body class="azul">
+<body class="rojo">
    <div class="nameSistema">
       <h1 class="text-center ">Nombre del Sistema</h1>
     </div>
-    <div style="display:inline-block; width:100%" class="btnIniPer">
+  <div style="display:inline-block; width:100%" class="btnIniPer">
       <button type="button" class="btn btn-default pull-left btn-Inicio">Inicio</button>
       <button type="button" class="btn btn-default pull-right btn-Perfil">Perfil</button>
-    </div>
-    <nav class="navbar navbar-default movimientos">
+     </div>
+    <nav class="navbar navbar-default barRoja">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -25,7 +25,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <p class="navbar-brand" style="color: black">Saldo Disponible</p>
+          <p class="navbar-brand" style="color:black">Certificados de Afiliación</p>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,18 +33,18 @@
           <ul class="nav navbar-nav">
             <li class="itemMenu"><a href="Login.html">Login</a></li>
             <li class="itemMenu"><a href="NuevaContrasena.html">Cambio Contraseña</a></li>
-            <li class="itemMenu"><a href="PagoCuota.html">Pago Cuota moderadora</a></li>
-            <li class="itemMenu"><a href="SolicitudCitas.html">Solicitud de Citas</a></li>
-            <li class="itemMenu"><a href="CancelacionCitas.html">Cancelación de Citas</a></li>
-            <li class="itemMenu"><a href="ConsultaFarmacias.html">Farmacias y laboratorios</a></li>
-            <li class="itemMenu"><a href="ActualizacionDatos.html">Actualización de datos</a></li>
-            <li class="itemMenu"><a href="CertificadoAfiliacion.html">Certificados de afiliación</a></li>
+            <li class="itemMenu"><a href="#">Pago Cuota moderadora</a></li>
+            <li class="itemMenu"><a href="#">Solicitud de Citas</a></li>
+            <li class="itemMenu"><a href="#">Cancelación de Citas</a></li>
+            <li class="itemMenu"><a href="#">Farmacias y laboratorios</a></li>
+            <li class="itemMenu"><a href="#">Actualización de datos</a></li>
+            <li class="active itemMenu"><a href="CertificadoAfiliacion.html">Certificados de afiliación <span class="sr-only">(current)</span></a></li>
             <li class="itemMenu"><a href="ConsultaHistorias.html">Historias Clinicas</a></li>
             <li class="itemMenu"><a href="ConsultaServicios.html">Servicios IPS</a></li>
             <li class="itemMenu"><a href="Sucursales.html">Sucursales</a></li>
             <li class="itemMenu"><a href="Dispositivos.html">Dispositivos</a></li>
             <li class="itemMenu"><a href="NoticiasEventos.html">Noticias y Eventos</a></li>
-            <li class="active itemMenu"><a href="SaldoDisponible.html">Saldo Disponible <span class="sr-only">(current)</span></a></li>
+            <li class="itemMenu"><a href="SaldoDisponible.html">Saldo Disponible</a></li>
             <li class="itemMenu"><a href="MovimientosBancarios.html">Movimientos Bancarios</a>
             </li>
           </ul>
@@ -52,40 +52,23 @@
       </div><!-- /.container-fluid -->
     </nav>
 	<div class="container-fluid">
-      <div class="well azul">
-        <div class="page-header">
-          <h1 class="text-center tituloFondoBlanco">Productos</h1>
+      <div class="well rojo">
+        <form action="#" class="form-horizontal">
+          <div class="form-group">
+            <label for="destinoCertificacion" class="col-xs-3 control-label">Destino certificado</label>
+            <div class="col-xs-9">
+              <input type="password" class="form-control" id="nuevaContrasenaRepetida" placeholder="Destino del certificado">
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-default">Aceptar</button>
+          </div>
+        </form>
+        <h5>Certificado</h5>
+        <div class="well blanco">
+          <h2 class="text-center">Certificado de afiliación</h2>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore officiis molestiae, sint numquam, voluptatum, quis exercitationem, pariatur debitis voluptates suscipit totam eligendi doloribus. Eaque aperiam beatae eligendi atque, minus iste!
         </div>
-        <table class="table table-responsive tablaDefault">
-          <thead class="azulHeaderTabla">
-            <tr>
-              <th>Nombre</th>
-              <th>Producto</th> 
-              <th>Numero</th>
-              <th>Saldo Disponible</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Lorem</td>
-              <td>ipsum</td>
-              <td>dolor</td>
-              <td>sit</td>
-            </tr>
-            <tr>
-              <td>consectetur</td>
-              <td>adipisicing</td>
-              <td>elit</td>
-              <td>Non</td>
-            </tr>
-            <tr>
-              <td>excepturi</td>
-              <td>inventore</td>
-              <td>sit</td>
-              <td>fugiat</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
 </body>
