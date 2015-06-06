@@ -9,7 +9,7 @@
         <title>Sistema Integrado de Salud </title>
     </h:head>
     
-    <body style="padding: 0px">
+    <body style="padding: 0px; font-family: arial">
         <div style="min-width:400px;min-height:150px;background-color: rgb(43,46,49)">
             <div ><img style="width: 257px; height: 130px; margin-top: 20px; margin-left: 30px" src="images/LogoSIS.png"></img></div>
             <div ><h1 align="center" style="margin-top: -70px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
@@ -21,7 +21,7 @@
                 <f:facet name="options">
                     <p:menubar>
                         <p:submenu label="#{indexBean.user}" icon="ui-icon-person" >
-                            <p:menuitem value="Cambiar contraseña" url="#"/>
+                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"/>
                             <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
@@ -51,7 +51,7 @@
                
             <div style="width:1114px; height:65px; position:absolute; left:226px;top:222px">
                        <div style="width:1114px;height:65px;background-color: rgb(187,38,38);position: absolute">
-                           <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central">PAGO DE CUOTA MODERADORA</h3></div>
+                           <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central; font-size: 20px">PAGO DE CUOTA MODERADORA</h3></div>
                         </div>
                 
                         <div style=" margin-top:3px; width:1114px; height:400px; background-color: rgb(235,108,90);position: absolute;top:66px">

@@ -14,7 +14,7 @@
         </style>
     </h:head>
     
-    <body style="padding: 0px">
+    <body style="padding: 0px; font-family: arial">
         <div style="min-width:400px;min-height:150px;background-color: rgb(43,46,49)">
             <div ><img style="width: 257px; height: 130px; margin-top: 20px; margin-left: 30px" src="images/LogoSIS.png"></img></div>
             <div ><h1 align="center" style="margin-top: -70px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
@@ -26,7 +26,7 @@
                 <f:facet name="options">
                     <p:menubar>
                         <p:submenu label="#{solicitarBean.user}" icon="ui-icon-person" >
-                            <p:menuitem value="Cambiar contraseña" url="#"/>
+                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"/>
                             <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
@@ -36,94 +36,77 @@
         </div>
         <div>
         <h:form>
-            <style>
-                .sticky {
-                  position: fixed;
-                  top: 0;
-                }
-                .header {
-                    padding: 0px 0;
-                }
-            </style>
             <div class="header">
 
-            <p:menu style="font-size: 16px; min-height: 553px">
+            <p:menu id="menu" style="font-size: 16px">
                 <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
-                        <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
-                        <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
-                        <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
-                        <p:menuitem url="ActualizacionDatos.xhtml"  value="Actualizacion de Datos"/>
-                        <p:menuitem url="CertificadoAfiliacion.xhtml" value="Certificado de Afiliacion"/>
-                        <p:menuitem url="HistoriaClinica.xhtml" value="Historias Clinicas"/>
-                        <p:menuitem url="Servicios.xhtml" value="Servicios Ips"/>
-                        <p:menuitem url="Sucursales.xhtml" value="Sucursales"/>
-                        <p:menuitem url="Dispositivos.xhtml" value="Dispositivos"/>
-                        <p:menuitem url="Noticias.xhtml" value="Noticias y Eventos"/>
-                        <p:menuitem url="SaldoDisponible.xhtml" value="Saldo Disponible"/>
-                        <p:menuitem url="MovimientosBancarios.xhtml" value="Movimientos Bancarios"/>
-                    </p:menu>
+                    <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
+                    <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
+                    <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
+                    <p:menuitem url="ActualizacionDatos.xhtml"  value="Actualizacion de Datos"/>
+                    <p:menuitem url="CertificadoAfiliacion.xhtml" value="Certificado de Afiliacion"/>
+                    <p:menuitem url="HistoriaClinica.xhtml" value="Historias Clinicas"/>
+                    <p:menuitem url="Servicios.xhtml" value="Servicios Ips"/>
+                    <p:menuitem url="Sucursales.xhtml" value="Sucursales"/>
+                    <p:menuitem url="Dispositivos.xhtml" value="Dispositivos"/>
+                    <p:menuitem url="Noticias.xhtml" value="Noticias y Eventos"/>
+                    <p:menuitem url="SaldoDisponible.xhtml" value="Saldo Disponible"/>
+                    <p:menuitem url="MovimientosBancarios.xhtml" value="Movimientos Bancarios"/>
+                </p:menu>
+                <p:sticky target="menu" />
                </div>
-            <script>
-                var header = document.querySelector('.header');
-                var origOffsetY = header.offsetTop;
-
-                function onScroll(e) {
-                  window.scrollY >= origOffsetY ? header.classList.add('sticky') :
-                                                  header.classList.remove('sticky');
-                }
-
-                document.addEventListener('scroll', onScroll);
-            </script>
 
             <div style="width:1114px; height:65px; position:absolute; left:226px;top:222px">
                        <div style="width:1114px;height:65px;background-color: rgb(187,38,38);position: absolute">
-                           <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central">SOLICITUD DE CITAS</h3></div>
+                           <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central; font-size: 20px">SOLICITUD DE CITAS</h3></div>
                         </div>
                 
                         <div style=" margin-top:3px; width:1114px; background-color: rgb(235,108,90);position: absolute;top:66px">
                             <h:form>
-                            <p:growl id="msgs" showDetail="true" />
+                                <p:growl id="msgs" showDetail="true" />
 
-                           <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px; margin-top: 20px ">
-                                <h:panelGrid columns="2" id="matchGrid" cellpadding="8">                   
-                                    <h:outputLabel for="tipoCita" value="Tipo Cita" />
-                                    <p:autoComplete id="tipoCita" dropdown="true" value="#{solicitarBean.tipoCita}" completeMethod="#{solicitarBean.loadTipoCita}"/>
-                                    
-                                    <h:outputLabel for="fecha" value="Fecha" />
-                                    <p:calendar id="fecha" value="#{solicitarBean.fechaCita}" pattern="yyyy-mm-dd" showOn="button" />
-                                    
-                                    <h:outputLabel for="jornada" value="Jornada" />
-                                    <p:selectOneMenu id="jornada" value="#{solicitarBean.jornada}" style="width:125px">
-                                        <f:selectItem itemLabel="Mañana" itemValue="M" />
-                                        <f:selectItem itemLabel="Tarde" itemValue="T" />
-                                    </p:selectOneMenu>
+                                <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(235,108,90); width: 750px; margin-top: 20px ">
+                                    <h:panelGrid columns="2" id="matchGrid" cellpadding="8">                   
+                                        <h:outputLabel for="tipoCita" value="Tipo Cita" />
+                                        <p:autoComplete id="tipoCita" dropdown="true" value="#{solicitarBean.tipoCita}" completeMethod="#{solicitarBean.loadTipoCita}"/>
 
-                                    <p:commandButton icon="ui-icon-check" actionListener="#{solicitarBean.solicitar(actionEvent)}" update="table" value="Aceptar" />
-                                                     
-                                </h:panelGrid>
-                           </p:panel>
-                            
-                            <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px; margin-top: 20px ">
-                                <h:panelGrid columns="1" id="matchGridTable" cellpadding="8"> 
-                                    <p:dataTable var="solicitar" id="table" value="#{solicitarBean.list}">
-                                    <p:column headerText="Seleccionar">
-                                    </p:column>
-                                    <p:column headerText="Hora">
-                                        <h:outputText value="#{solicitar.hora}" />
-                                    </p:column>
+                                        <h:outputLabel for="fecha" value="Fecha" />
+                                        <p:calendar id="fecha" value="#{solicitarBean.fechaCita}" pattern="yyyy-mm-dd" showOn="button" />
 
-                                    <p:column headerText="Doctor">
-                                        <h:outputText value="#{solicitar.doctor}" />
-                                    </p:column>
+                                        <h:outputLabel for="jornada" value="Jornada" />
+                                        <p:selectOneMenu id="jornada" value="#{solicitarBean.jornada}" style="width:125px">
+                                            <f:selectItem itemLabel="Mañana" itemValue="M" />
+                                            <f:selectItem itemLabel="Tarde" itemValue="T" />
+                                        </p:selectOneMenu>
 
-                                    <p:column headerText="Lugar">
-                                        <h:outputText value="#{solicitar.lugar}" />
-                                    </p:column>
+                                        <p:commandButton icon="ui-icon-check" actionListener="#{solicitarBean.solicitar(actionEvent)}" update="table" value="Aceptar" />
 
-                                </p:dataTable>
-                                <p:commandButton  icon="ui-icon-plus" update="matchGrid" value="Solicitar" />
-                                </h:panelGrid>
-                            </p:panel>
+                                    </h:panelGrid>
+                                </p:panel>
+
+                                <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(235,108,90); width: 750px; margin-top: 20px ">
+                                    <h:panelGrid columns="1" id="matchGridTable" cellpadding="8"> 
+                                        <p:dataTable var="cita" id="table" value="#{solicitarBean.list}">
+
+                                            <p:column headerText="Hora">
+                                                <h:outputText value="#{cita.hora}" />
+                                            </p:column>
+
+                                            <p:column headerText="Doctor">
+                                                <h:outputText value="#{cita.doctor}" />
+                                            </p:column>
+
+                                            <p:column headerText="Lugar">
+                                                <h:outputText value="#{cita.lugar}" />
+                                            </p:column>
+
+                                            <p:column headerText="Solicitar">
+                                                <p:commandButton value="Solicitar" actionListener="#{solicitarBean.getSelectedCita(cita)}" />
+                                            </p:column>
+                                    </p:dataTable>
+                                    </h:panelGrid>
+                                </p:panel>
+                                
                             </h:form>
                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>
                         </div>

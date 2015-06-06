@@ -6,24 +6,21 @@
 package beans;
 
 import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import org.primefaces.context.RequestContext;
 
 /**
  *
  * @author USUARIO
  */
-@ManagedBean
+@ManagedBean(name = "solicitarBean")
 @RequestScoped
 public class solicitarBean {
 
@@ -46,7 +43,7 @@ public class solicitarBean {
 
     public List<String> loadTipoCita(String query){
         ConnectionBean data = ConnectionBean.getInstance();
-        List<String> aux = new ArrayList<String>();
+        List<String> aux = new ArrayList<>();
         String[] columns = {"nombre_tipo"};
         String[] auxRow = {};
         data.loadQuery("select nombre_tipo from tipos_cita");
@@ -96,12 +93,19 @@ public class solicitarBean {
                         "						where c.FECHA_CITA = '"+format.format(fechaCita)+"'\n" +
                         "						and c.ID_DOCTOR = dc.id_doctor) "
                 + "order by hora_disponible";
-        //System.err.println("\n\n\n"+query);
         data.loadQuery(query);
-        System.out.println("entro !");
         while((auxRow = data.getDBData(columns))!= null){
             list.add(new Cita(auxRow[0], auxRow[1], auxRow[2]));
         }
+    }
+
+    public void getSelectedCita(ActionEvent actionEvent){
+        
+        System.err.println("*******************------------LA CITA SELECCIONADA ES: ");
+    }
+
+    public void selectCarFromDialog(Cita cita) {
+        System.err.println("*******************------------LA CITA SELECCIONADA ES: " + cita.getDoctor());
     }
     
     public String getTipoCita() {

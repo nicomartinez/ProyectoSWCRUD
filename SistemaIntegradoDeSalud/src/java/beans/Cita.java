@@ -37,8 +37,6 @@ public class Cita {
         this.hora = hora;
     }
 
-    
-
     public String getDoctor() {
         return doctor;
     }

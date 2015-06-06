@@ -28,10 +28,11 @@ public class historiaBean {
     
     public historiaBean(){
         Client client = Client.getInstance();
+        FacesMessage message;
         if(client.getIdUser()>0){
         
         }else{
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIN USUARIO", "NO has iniciado sesión, por favor vuelve a la pantalla inicial.");
+            message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIN USUARIO", "NO has iniciado sesión, por favor vuelve a la pantalla inicial.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
     }
@@ -53,7 +54,7 @@ public class historiaBean {
                     + "and i.nombre_ips="+ips+";";
            data.loadQuery(query);
          }else{
-             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIN USUARIO", "NO has iniciado sesión, por favor vuelve a la pantalla inicial.");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIN USUARIO", "NO has iniciado sesión, por favor vuelve a la pantalla inicial.");
             FacesContext.getCurrentInstance().addMessage(null, message);
          }
     }
