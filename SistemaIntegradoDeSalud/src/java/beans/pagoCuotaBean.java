@@ -13,7 +13,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import jdk.nashorn.internal.objects.annotations.Constructor;
+//import jdk.nashorn.internal.objects.annotations.Constructor;
 
 /**
  *
@@ -23,58 +23,66 @@ import jdk.nashorn.internal.objects.annotations.Constructor;
 @RequestScoped
 public class pagoCuotaBean {
     
-    private String referencia;
+    private int referencia;
     private String descripcion;
     private int valor;
     private String numeroCuenta;
     private String contrasenia;
 
     public pagoCuotaBean(){
+         ConnectionBean data = ConnectionBean.getInstance();
         Client cliente = Client.getInstance();
         if(cliente.getIdUser() > 0){
+            String query ="select  case  when truncate( datediff(CURRENT_DATE,fecha_cuota)/30,0) >= 1 then 1 else 2 end fecha from cuotas where id_cuota = (select max(id_cuota) from cuotas where id_cliente = "+cliente.getIdUser()+");";
+
+                if(data.rows(query, "fecha").equals("1")){
+                    String query2="select distinct( max(id_cuota)) id, CURRENT_DATE fecha, valor_cuota valor from cuotas c, clientes cl where cl.id_cliente = c.id_cliente;";
+                    referencia= Integer.parseInt(data.rows(query2, "id"))+1;
+                    descripcion= data.rows(query2, "fecha");
+                    System.out.println(descripcion);
+                    valor= Integer.parseInt(data.rows(query2, "valor"));
+                }else{
+                 FacesMessage prueba = new FacesMessage(FacesMessage.SEVERITY_INFO, "Informe","Aun no es hora de realizar el pago de las cuota");
+                 FacesContext.getCurrentInstance().addMessage(null, prueba);
+                }
+            
+            
+            
+            
         }else{
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIN USUARIO", "NO has iniciado sesión, por favor vuelve a la pantalla inicial.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
     }
     
-    public void temp(){
-        ConnectionBean data = ConnectionBean.getInstance();
-        Client cliente = Client.getInstance();
-        String query ="select  case  when month(dateiff(fecha_cuota,CURRENT_DATE)) = 1 then 1 else 2 end fecha from cuotas where id_cuota = (select max(id_cuota) from cuotas where id_cuota = "+cliente.getIdUser()+");";
-
-       if(data.rows(query, "fecha").equals("1")){
-           String query2="select distinc( max(id_cuota)) id, CURRENT_DATE fecha, valor_cuota valor from cuotas c, clientes cl where cl.id_cliente = c.id_cliente and cl.id_cliente =" +cliente.getIdUser()+";";
-           referencia= data.rows(query2, "id");
-           descripcion= data.rows(query2, "fecha");
-           valor= Integer.parseInt(data.rows(query2, "valor"));
-           // try {
-               // FacesContext.getCurrentInstance().getExternalContext().redirect("pagoCuota.xhtml");
-            //} catch (IOException ex) {
-              //Logger.getLogger(pagoCuotaBean.class.getName()).log(Level.SEVERE, null, ex);
-            //}
-       }else{
-        FacesMessage prueba = new FacesMessage(FacesMessage.SEVERITY_INFO, "Informe","Aun no es hora de realizar el pago de las cuota");
-
-       }
-    }
  
     public void pagoCuota(ActionEvent actionEvent){
         ConnectionBean data = ConnectionBean.getInstance();
         Client cliente = Client.getInstance();
-        String query ="select case when saldo_cuenta > valor then 1 else 2 end valor from cuentas where id_cliente ="+cliente.getIdUser()+";";
+        String query ="select case when saldo_cuenta > "+valor+" then 1 else 2 end valor from cuentas where id_cliente ="+cliente.getIdUser()+";";
         String query2 ="select 1 cuenta from cuentas where numero_cuenta="+ numeroCuenta+" and clave_cuenta="+contrasenia+";";
+        String query3="select id_eps from clientes where id_cliente="+ cliente.getIdUser()+";";
         if(data.rows(query2, "cuenta").equals("1")){
             if(data.rows(query, "valor").equals("1")){
-            String pago = "insert into cuotas values (" + Integer.parseInt(data.rows(query, "id")) + "," + cliente.getIdUser() + "," + Integer.parseInt(data.rows(query, "valor")) + ", '" + data.rows(query, "fecha") + "');";
-            String pago2="insert into valores values(1,"+numeroCuenta+","+valor+","+descripcion+");";
-            String actualiza= "update cuentas set saldo_cuenta= (saldo_cuenta-"+valor+") where numero_cuenta="+Integer.parseInt(numeroCuenta)+";";
-            FacesMessage prueba = new FacesMessage(FacesMessage.SEVERITY_INFO, "Informe","Pago registrado");
+                
+                    String pago = "insert into cuotas values (" + referencia + "," + cliente.getIdUser() + "," + valor + ", '" + descripcion + "');";
+                    System.out.println(pago);
+                    data.insert(pago);
+                    String pago2="insert into valores values("+numeroCuenta+","+data.rows(query3, "id_eps")+","+valor+",'"+descripcion+"');";
+                    data.insert(pago2);
+                    String actualizar= "update cuentas set saldo_cuenta= (saldo_cuenta-"+valor+") where numero_cuenta="+Integer.parseInt(numeroCuenta)+";";
+                    data.insert(actualizar);
+                    FacesMessage prueba = new FacesMessage(FacesMessage.SEVERITY_INFO, "Informe","Pago registrado");
+                    
+                    FacesContext.getCurrentInstance().addMessage(null, prueba);
+                
             }else{
                 FacesMessage prueba = new FacesMessage(FacesMessage.SEVERITY_WARN, "Informe","No hay saldo suficiente para la operacion");
+                FacesContext.getCurrentInstance().addMessage(null, prueba);
             }
         }else{
             FacesMessage prueba = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Informe","El numero de cuenta o la contraseña no corresponden ");
+            FacesContext.getCurrentInstance().addMessage(null, prueba);
         }
         
     }
@@ -90,11 +98,11 @@ public class pagoCuotaBean {
         return "Perfil";
     }
 
-    public String getReferencia() {
+    public int getReferencia() {
         return referencia;
     }
 
-    public void setReferencia(String referencia) {
+    public void setReferencia(int referencia) {
         this.referencia = referencia;
     }
 
