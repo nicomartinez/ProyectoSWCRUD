@@ -59,16 +59,16 @@
 
                            <p:panel id="basic" style="margin-bottom:30px;margin-left:250px ; background-color:rgb(250,200,84); width: 700px; margin-top:20px  ">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8">                   
-                                    <h:outputLabel for="nombres" value="Contraseña Actual" />
-                                    <p:password id="contraseniaActual" value=""  required="true" />
+                                    <h:outputLabel for="contraseniaActual" value="Contraseña Actual" />
+                                    <p:password id="contraseniaActual" value="#{cambioContraseniaBean.contraseña}"  required="true" />
                                     
-                                    <h:outputLabel for="contrasenia" value="Nueva Contraseña" />
-                                    <p:password id="contraseniaNueva" value="" required="true" />
+                                    <h:outputLabel for="contrasenia"  value="Nueva Contraseña" />
+                                    <p:password id="contrasenia" value="#{cambioContraseniaBean.nuevaContraseña}" required="true" />
                                    
                                     <h:outputLabel for="confirmacion" value="Confirmar Nueva Contraseña" />
-                                    <p:password id="confirmacion" value="" required="true" />
+                                    <p:password id="confirmacion" value="#{cambioContraseniaBean.confirmacion}" required="true" />
                                     
-                                     <p:commandButton  icon="ui-icon-check" update="matchGrid" value="Cambiar" />
+                                    <p:commandButton  icon="ui-icon-check" update="msgs"  actionListener="#{cambioContraseniaBean.cambiar(actionEvent)}" value="Cambiar" />
                                     
                                 </h:panelGrid>
                            </p:panel>
