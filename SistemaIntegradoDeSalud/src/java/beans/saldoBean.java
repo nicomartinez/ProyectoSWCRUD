@@ -32,7 +32,7 @@ public class saldoBean {
             ConnectionBean data = ConnectionBean.getInstance();
             String[] columns = {"nombre_titular","tipo_cuenta", "numero_cuenta", "saldo_cuenta"};
             String[] auxRow = {};
-            data.loadQuery("select nombre_titular, tipo_cuenta, numero_cuenta, saldo_cuenta " +
+            data.loadQuery("select nombre_titular, case tipo_cuenta when tipo_cuenta='C' then 'Cuenta Corriente' else 'Cuenta de Ahorros' end tipo_cuenta, numero_cuenta, saldo_cuenta " +
                             "from cuentas " +
                             "where id_cliente="+ client.getIdUser());           
             while((auxRow = data.getDBData(columns))!= null){
