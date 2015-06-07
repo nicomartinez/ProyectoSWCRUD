@@ -59,18 +59,19 @@
                             <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8"> 
                                <h:outputLabel for="ips" value="IPS" />
-                                    <p:selectOneMenu id="ips" value="#{selectOneMenuView.console}" style="width:125px">
-                                        
-                                    </p:selectOneMenu>
-                               <p:commandButton  icon="ui-icon-search" update="matchGrid" value="Consultar" />
+                               <p:autoComplete id="ips" dropdown="true" value="#{noticiasBean.ips}" completeMethod="#{noticiasBean.loadIPS}"/>
+                               <p:commandButton  icon="ui-icon-search" update="table" value="Consultar" actionListener="#{noticiasBean.noticias(actionEvent)}" />
                                 </h:panelGrid>
                             </p:panel>
                             
                              <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; min-height:120px;  margin-top: 20px ">
                                 
-                                <p:dataTable var="car" value="#{dtBasicView.cars}">
+                                 <p:dataTable var="informacion" id="table" value="#{noticiasBean.list}">
+                                    <p:column headerText="">
+                                        <h:outputText value="#{informacion.tipo}" />
+                                    </p:column>
                                     <p:column headerText="Noticias">
-                                        <h:outputText value="#{car.id}" />
+                                        <h:outputText value="#{informacion.descripcion}" />
                                     </p:column>
                                     
                                 </p:dataTable>

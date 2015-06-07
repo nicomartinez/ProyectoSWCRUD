@@ -53,11 +53,11 @@
                            <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central; font-size: 20px">CAMBIO DE CONTRASEÑA</h3></div>
                         </div>
                 
-                        <div style=" margin-top:3px; width:1114px; height:440px; background-color: rgb(250,200,84);position: absolute;top:66px">
+                        <div style=" margin-top:3px; width:1114px; background-color: rgb(250,200,84);position: absolute;top:66px">
                             <h:form>
                             <p:growl id="msgs" showDetail="true" />
 
-                           <p:panel id="basic" style="margin-bottom:30px;margin-left:250px ; background-color:rgb(250,200,84); width: 700px; margin-top:20px  ">
+                           <p:panel id="basic" style="margin-bottom:30px;margin-left:250px ; background-color:rgb(250,200,84); width: 700px; margin-top:20px; min-height:280px">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8">                   
                                     <h:outputLabel for="contraseniaActual" value="Contraseña Actual" />
                                     <p:password id="contraseniaActual" value="#{cambioContraseniaBean.contraseña}"  required="true" />
@@ -74,6 +74,7 @@
                            </p:panel>
                             
                             </h:form>
+                               <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>
                         </div>
             </div>
                    
@@ -82,14 +83,5 @@
       
         </h:form>
          </div>   
-            
-            
-        <h:form>
-            <p:layout style=" margin-top:150px; min-width:400px;min-height:50px;">
-                <p:layoutUnit position="center">
-                    Center
-                </p:layoutUnit>
-            </p:layout>
-        </h:form>
     </body>
 </html>
