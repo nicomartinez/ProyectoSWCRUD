@@ -32,7 +32,7 @@
         <h:form>
             <div class="header">
 
-            <p:menu style="font-size: 16px; min-height: 553px">
+            <p:menu style="font-size: 16px;">
                 <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
                         <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
                         <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
@@ -54,7 +54,7 @@
                            <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central; font-size: 20px"> CONSULTA DE DISPOSITIVOS</h3></div>
                         </div>
                 
-                        <div style=" margin-top:3px; width:1114px; height:450px; background-color: rgb(159,192,109);position: absolute;top:66px">
+                        <div style=" margin-top:3px; width:1114px; background-color: rgb(159,192,109);position: absolute;top:66px">
                             <h:form>
                             <p:growl id="msgs" showDetail="true" />
                             <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
@@ -65,7 +65,7 @@
                                 </h:panelGrid>
                             </p:panel>
                             
-                             <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
+                             <p:panel id="basicTable" header="Dispositivos" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; min-height:120px;  margin-top: 20px; text-align: center ">
                                 
                                  <p:dataTable var="dispositivo" value="#{dispositivosBean.list}" id="table">
                                     <p:column headerText="Nombre">
@@ -84,6 +84,7 @@
                                 
                             </p:panel>
                             </h:form>
+                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>   
                         </div>
             </div>
                    
@@ -93,13 +94,5 @@
         </h:form>
          </div>   
             
-            
-        <h:form>
-            <p:layout style=" margin-top:100px; min-width:400px;min-height:50px;">
-                <p:layoutUnit position="center">
-                    Center
-                </p:layoutUnit>
-            </p:layout>
-        </h:form>
     </body>
 </html>

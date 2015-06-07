@@ -6,6 +6,9 @@
 package beans;
 
 import java.awt.event.ActionEvent;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -20,21 +23,81 @@ import javax.faces.context.FacesContext;
 public class historiaBean {
 
     private String nombres;
-    private int numeroDoc;
-    private int numeroTel;
+    private String  numeroDoc;
+    private String numeroTel;
+    
     private char tipoDoc;
     private int numDocPac;
     private char ips;
     
     public historiaBean(){
+        ConnectionBean data = ConnectionBean.getInstance();
+    
         Client client = Client.getInstance();
         FacesMessage message;
-        if(client.getIdUser()>0){
-        
+         if(client.getIdUser()>0){
+            String query="select nombre_cliente, documento_cliente, "
+                    + "telefono_cliente telefono "
+                    + "from clientes "
+                    + "where id_cliente="+client.getIdUser();
+            
+                nombres=data.rows(query, "nombre_cliente");
+                numeroDoc =data.rows(query, "documento_cliente");
+                numeroTel= data.rows(query, "telefono");
         }else{
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIN USUARIO", "NO has iniciado sesión, por favor vuelve a la pantalla inicial.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
+       
+    }
+    
+    
+      public List<String> loadIPS(){
+        ConnectionBean data = ConnectionBean.getInstance();
+        Client cliente = Client.getInstance();
+        List<String> aux = new ArrayList<String>();
+        if(cliente.getIdUser()>0){
+             String[] columns = {"nombre_ips"};
+            String[] auxRow = {};
+            
+                 String query2="select nombre_ips " +
+                            "from clientes c, eps e, ips i "+
+                            "where c.id_eps=e.id_eps " +
+                            "and e.id_eps=i.id_eps " +
+                            "and c.documento_cliente="+ numDocPac;
+            data.loadQuery(query2);
+            while((auxRow = data.getDBData(columns))!= null){
+                aux.add(auxRow[0]);
+            }
+                
+            
+           
+           
+        }else{
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIN USUARIO", "NO has iniciado sesión, por favor vuelve a la pantalla inicial.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+        return aux;
+    }
+      
+      public List<String> loadTipoDoc(String query){
+        ConnectionBean data = ConnectionBean.getInstance();
+        Client cliente = Client.getInstance();
+        List<String> aux = new ArrayList<String>();
+        if(cliente.getIdUser()>0){
+            String[] columns = {"tipo_documento"};
+            String[] auxRow = {};
+            String query2="select distinct case tipo_documento when tipo_documento='CC' then 'Cedula' else 'Tarjeta Identidad' end tipo_documento " +
+                            "from clientes";
+            data.loadQuery(query2);
+            while((auxRow = data.getDBData(columns))!= null){
+                aux.add(query+auxRow[0]);
+            }
+        }else{
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIN USUARIO", "NO has iniciado sesión, por favor vuelve a la pantalla inicial.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+        return aux;
     }
     
     public void historia(ActionEvent actionEvent){
@@ -58,6 +121,7 @@ public class historiaBean {
             FacesContext.getCurrentInstance().addMessage(null, message);
          }
     }
+    
 
     public String getNombres() {
         return nombres;
@@ -67,19 +131,19 @@ public class historiaBean {
         this.nombres = nombres;
     }
 
-    public int getNumeroDoc() {
+    public String getNumeroDoc() {
         return numeroDoc;
     }
 
-    public void setNumeroDoc(int numeroDoc) {
+    public void setNumeroDoc(String numeroDoc) {
         this.numeroDoc = numeroDoc;
     }
 
-    public int getNumeroTel() {
+    public String getNumeroTel() {
         return numeroTel;
     }
 
-    public void setNumeroTel(int numeroTel) {
+    public void setNumeroTel(String numeroTel) {
         this.numeroTel = numeroTel;
     }
 

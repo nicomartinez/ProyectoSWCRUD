@@ -53,7 +53,7 @@
                            <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central; font-size: 20px">HISTORIA CLINICA</h3></div>
                         </div>
                 
-                        <div style=" margin-top:3px; width:1114px; height:550px; background-color: rgb(159,192,109);position: absolute;top:66px">
+                        <div style=" margin-top:3px; width:1114px; background-color: rgb(159,192,109);position: absolute;top:66px">
                             <h3 align="center" style="color: rgb(0,0,0)">Datos Solicitante</h3>
                             <h:form>
                             <p:growl id="msgs" showDetail="true" />
@@ -61,13 +61,13 @@
                            <p:panel id="basic" style="margin-bottom:30px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top:20px  ">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8">                   
                                     <h:outputLabel for="nombres" value="Nombres" />
-                                    <p:inputText id="nombres" value=""  required="true" />
+                                    <p:inputText id="nombres" value="#{historiaBean.nombres}" disabled="true" required="true" />
                               
                                     <h:outputLabel for="numeroDoc" value="Numero Documento" />
-                                    <p:inputText id="numeroDoc" value="" required="true" />
+                                    <p:inputText id="numeroDoc" value="#{historiaBean.numeroDoc}"  disabled="true" required="true" />
                             
                                     <h:outputLabel for="telefono" value="Telefono" />
-                                    <p:inputText id="telefono" value="" required="true" />
+                                    <p:inputText id="telefono" value="#{historiaBean.numeroTel}"  disabled="true" required="true" />
  
                                 </h:panelGrid>
                            </p:panel>
@@ -75,38 +75,43 @@
                             <p:panel id="basicPaciente" style="margin-bottom:30px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top:20px  ">
                                 <h:panelGrid columns="2" id="matchGridPaciente" cellpadding="8">  
                                     <h:outputLabel for="tipoDocPaciente" value="Tipo de Documento" />
-                                    <p:selectOneMenu id="tipoDocPaciente" value="#{selectOneMenuView.console}" style="width:125px">
-                                        <f:selectItem itemLabel="Cedula" itemValue="" />
-                                        <f:selectItem itemLabel="Tarjeta Identidad" itemValue="" />
-                                    </p:selectOneMenu>
-                                    
+                                    <p:autoComplete id="tipoDocPaciente" dropdown="true" value="#{historiaBean.tipoDoc}" completeMethod="#{historiaBean.loadTipoDoc}"/>   
                                     
                                     <h:outputLabel for="numeroDocPaciente" value="Numero Documento" />
-                                    <p:inputText id="numeroDocPaciente" value="" required="true" />
+                                    <p:inputText id="numeroDocPaciente" value="#{historiaBean.numDocPac}" > <p:ajax event="blur" update="ips" listener="#{historiaBean.loadIPS}"/> </p:inputText>
                                   
-                                    <h:outputLabel for="tipoCita" value="Tipo de Cita" />
-                                    <p:autoComplete id="tipoCita" dropdown="true" value="#{solicitarBean.tipoCita}" completeMethod="#{solicitarBean.loadTipoCita}"/>
+                                    <h:outputLabel for="ips" value="IPS" />
+                                    <p:autoComplete id="ips" dropdown="true" value="#{historiaBean.ips}"/>
+                                    
                                     <p:commandButton  icon="ui-icon-check" actionListener="#{historiaBean.historia(actionEvent)}" update="matchGrid" value="Aceptar" />
                                 </h:panelGrid>
                            </p:panel>
                             
+                            
+                            <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
+                                
+                                <p:dataTable var="car" value="#{dtBasicView.cars}">
+                                    <p:column headerText="Procedimientos">
+                                        <h:outputText value="#{car.id}" />
+                                    </p:column>
+                                    
+                                </p:dataTable>
+                            </p:panel>
+                            
                             </h:form>
+                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>         
                         </div>
+                
             </div>
                    
-                        
+                
                  
       
         </h:form>
+           
          </div>   
             
             
-        <h:form>
-            <p:layout style=" margin-top:230px; min-width:400px;min-height:50px;">
-                <p:layoutUnit position="center">
-                    Center
-                </p:layoutUnit>
-            </p:layout>
-        </h:form>
+     
     </body>
 </html>
