@@ -60,21 +60,22 @@
                             <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8"> 
                                <h:outputLabel for="ips" value="IPS" />
-                                    <p:selectOneMenu id="ips" value="#{selectOneMenuView.console}" style="width:125px">
-                                        
-                                    </p:selectOneMenu>
-                               <p:commandButton  icon="ui-icon-search" update="matchGrid" value="Consultar" />
+                               <p:autoComplete id="ips" value="#{dispositivosBean.ips}" completeMethod="#{dispositivosBean.loadIPS}" dropdown="true"/>
+                               <p:commandButton  icon="ui-icon-search" update="table" actionListener="#{dispositivosBean.dispositivos(actionEvent)}" value="Consultar" />
                                 </h:panelGrid>
                             </p:panel>
                             
                              <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
                                 
-                                <p:dataTable var="car" value="#{dtBasicView.cars}">
-                                    <p:column headerText="Dispositivo">
-                                        <h:outputText value="#{car.id}" />
+                                 <p:dataTable var="dispositivo" value="#{dispositivosBean.list}" id="table">
+                                    <p:column headerText="Nombre">
+                                        <h:outputText value="#{dispositivo.nombre}" />
                                     </p:column>
-                                    <p:column headerText="Procedimiento">
-                                        <h:outputText value="#{car.id}" />
+                                    <p:column headerText="Costo">
+                                        <h:outputText value="#{dispositivo.costo}" />
+                                    </p:column>
+                                    <p:column headerText="Descripcion">
+                                        <h:outputText value="#{dispositivo.descripcion}" />
                                     </p:column>
 
                                 </p:dataTable>

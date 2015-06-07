@@ -30,11 +30,13 @@ public class saldoBean {
         if(client.getIdUser()>0){
             list = new ArrayList<>();
             ConnectionBean data = ConnectionBean.getInstance();
-            data.loadQuery("select * from user;");
-            String[] columns = {"nick","pass"};
+            String[] columns = {"nombre_titular","tipo_cuenta", "numero_cuenta", "saldo_cuenta"};
             String[] auxRow = {};
+            data.loadQuery("select nombre_titular, tipo_cuenta, numero_cuenta, saldo_cuenta " +
+                            "from cuentas " +
+                            "where id_cliente="+ client.getIdUser());           
             while((auxRow = data.getDBData(columns))!= null){
-                list.add(new Banco());
+                list.add(new Banco(auxRow[0],auxRow[1],auxRow[2],auxRow[3]));
             }
         }else{
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIN USUARIO", "NO has iniciado sesión, por favor vuelve a la pantalla inicial.");

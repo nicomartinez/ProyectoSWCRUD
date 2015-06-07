@@ -59,13 +59,14 @@
                             <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8"> 
                                <h:outputLabel for="ips" value="IPS" />
-                               <p:autoComplete id="ips" dropdown="true" value="#{serviciosBean.ips}" completeMethod="#{serviciosBean.loadIPS}"/>
+                               <p:autoComplete id="ips" dropdown="true" value="#{serviciosBean.ips}" completeMethod="#{serviciosBean.loadIPS}">
+                                   <p:ajax update="ubicacion" listener="#{serviciosBean.loadLocation}" />
+                                </p:autoComplete>
                                     
                                     <h:outputLabel for="ubicacion" value="Ubicacion" />
-                                    <p:selectOneMenu id="ubicacion" value="#{selectOneMenuView.console}" style="width:125px">
+                                    <p:autoComplete id="ubicacion" dropdown="true" value="#{serviciosBean.ubicacion}"/>
                                         
-                                    </p:selectOneMenu>
-                               <p:commandButton  icon="ui-icon-search" update="matchGrid" value="Consultar" />
+                               <p:commandButton  icon="ui-icon-search"  update="matchGrid" value="Consultar" />
                                 </h:panelGrid>
                             </p:panel>
                             

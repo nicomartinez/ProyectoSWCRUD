@@ -59,28 +59,25 @@
                             <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8"> 
                                <h:outputLabel for="ips" value="IPS" />
-                                    <p:selectOneMenu id="ips" value="#{selectOneMenuView.console}" style="width:125px">
-                                        
-                                    </p:selectOneMenu>
+                               <p:autoComplete id="ips" dropdown="true" value="#{sucursalBean.ips}" completeMethod="#{sucursalBean.loadIPS}"/>
                                
-                               <p:commandButton  icon="ui-icon-search" update="matchGrid" value="Consultar" />
+                               <p:commandButton  icon="ui-icon-search" actionListener="#{sucursalBean.sucursal(actionEvent)}" update="table" value="Consultar" />
                                 </h:panelGrid>
                             </p:panel>
                             
                              <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
                                 
-                                <p:dataTable var="car" value="#{dtBasicView.cars}">
+                                 <p:dataTable var="sucursal" value="#{sucursalBean.list}" id="table">
+                                    <p:column headerText="Nombre">
+                                        <h:outputText value="#{sucursal.nombre}" />
+                                    </p:column>
                                     <p:column headerText="Ciudad">
-                                        <h:outputText value="#{car.id}" />
+                                        <h:outputText value="#{sucursal.ciudad}" />
                                     </p:column>
                                     <p:column headerText="Direccion">
-                                        <h:outputText value="#{car.id}" />
+                                        <h:outputText value="#{sucursal.direccion}" />
                                     </p:column>
-
                                 </p:dataTable>
-                                  
-                                
-                                
                             </p:panel>
                             </h:form>
                         </div>

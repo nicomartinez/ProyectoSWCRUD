@@ -58,18 +58,18 @@
                             <p:growl id="msgs" showDetail="true" />
                              <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(146,189,219); width: 700px; margin-top: 20px ">
                                 
-                                <p:dataTable var="car" value="#{dtBasicView.cars}">
-                                    <p:column headerText="Nombre">
-                                        <h:outputText value="#{car.id}" />
+                                 <p:dataTable var="saldo" value="#{saldoBean.list}" id="table">
+                                    <p:column headerText="Nombre Titular">
+                                        <h:outputText value="#{saldo.nombre}" />
                                     </p:column>
-                                    <p:column headerText="Producto">
-                                        <h:outputText value="#{car.id}" />
+                                    <p:column headerText="Tipo de Cuenta">
+                                        <h:outputText value="#{saldo.tipo}" />
                                     </p:column>
                                     <p:column headerText="Numero">
-                                        <h:outputText value="#{car.id}" />
+                                        <h:outputText value="#{saldo.cuenta}" />
                                     </p:column>
                                      <p:column headerText="Saldo Disponible">
-                                        <h:outputText value="#{car.id}" />
+                                         <h:outputText value="#{saldo.saldo}" />
                                     </p:column>
                                 </p:dataTable>
                                   
