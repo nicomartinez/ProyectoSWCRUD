@@ -27,7 +27,7 @@ public class ConnectionBean {
     private ResultSet list; //Vector con las tuplas de los resultados.
     private Statement command; //Variable necesaria para la conexión con la base de datos.
 
-    public ConnectionBean() {
+    private ConnectionBean() {
     }
     
     public static  synchronized ConnectionBean getInstance(){
@@ -127,7 +127,7 @@ public class ConnectionBean {
             Class.forName("com.mysql.jdbc.Driver");             //Definición del driver jdbc.
             String servidor = "jdbc:mysql://localhost/sis";   //La base de datos será "basesistema"
             String usuarioDB="root";                        //Usuario
-            String passwordDB="a123";                     //Contraseña para el acceso a la base de datos.
+            String passwordDB="bases1";                     //Contraseña para el acceso a la base de datos.
             conexion = DriverManager.getConnection(servidor,usuarioDB,passwordDB);
         }   //EXEPCIONES
         catch(ClassNotFoundException ex)

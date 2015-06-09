@@ -19,8 +19,8 @@
                 <p:menuitem value="INICIO" style="padding-top: 15px" url="index.xhtml" icon="ui-icon-home" />
                 <f:facet name="options">
                     <p:menubar>
-                        <p:submenu label="#{indexBean.user}" icon="ui-icon-person" >
-                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"/>
+                        <p:submenu label="#{solicitarBean.user}" icon="ui-icon-person" >
+                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"  rendered="#{solicitarBean.isUser}"/>
                             <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
@@ -56,7 +56,7 @@
                         <div style=" margin-top:3px; width:1114px; background-color: rgb(159,192,109);position: absolute;top:66px">
                             <h:form>
                             <p:growl id="msgs" showDetail="true" />
-                            <p:panel id="basic"   style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
+                            <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8"> 
                                <h:outputLabel for="ips" value="IPS" />
                                <p:autoComplete id="ips" dropdown="true" value="#{serviciosBean.ips}" completeMethod="#{serviciosBean.loadIPS}">
@@ -64,13 +64,13 @@
                                 </p:autoComplete>
                                     
                                     <h:outputLabel for="ubicacion" value="Ubicacion" />
-                                    <p:autoComplete id="ubicacion" dropdown="true" value="#{serviciosBean.ubicacion}" />
+                                    <p:autoComplete id="ubicacion" dropdown="true" value="#{serviciosBean.ubicacion}" completeMethod="#{serviciosBean.loadLocation(query)}" />
                                         
-                               <p:commandButton  icon="ui-icon-search"  update="matchGrid" value="Consultar" />
+                               <p:commandButton  icon="ui-icon-search"  update="basicTable" value="Consultar" />
                                 </h:panelGrid>
                             </p:panel>
                             
-                             <p:panel id="basicTable" header="Servicios" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px; text-align: center ">
+                             <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
                                 
                                 <p:dataTable var="car" value="#{dtBasicView.cars}">
                                     <p:column headerText="Servicio">
@@ -83,13 +83,9 @@
                                 
                             </p:panel>
                             </h:form>
-                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>   
+                            <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>
                         </div>
             </div>
-                   
-                        
-                 
-      
         </h:form>
          </div>   
     </body>

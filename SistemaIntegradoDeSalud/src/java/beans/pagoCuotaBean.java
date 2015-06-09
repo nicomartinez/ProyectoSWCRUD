@@ -6,9 +6,6 @@
 package beans;
 
 import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -66,7 +63,6 @@ public class pagoCuotaBean {
             if(data.rows(query, "valor").equals("1")){
                 
                     String pago = "insert into cuotas values (" + referencia + "," + cliente.getIdUser() + "," + valor + ", '" + descripcion + "');";
-                    System.out.println(pago);
                     data.insert(pago);
                     String pago2="insert into valores values("+numeroCuenta+","+data.rows(query3, "id_eps")+","+valor+",'"+descripcion+"');";
                     data.insert(pago2);

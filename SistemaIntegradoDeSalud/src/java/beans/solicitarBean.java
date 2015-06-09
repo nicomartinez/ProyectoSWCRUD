@@ -6,28 +6,29 @@
 package beans;
 
 import java.awt.event.ActionEvent;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import org.primefaces.context.RequestContext;
 
 /**
  *
  * @author USUARIO
  */
-@ManagedBean(name = "solicitarBean")
-@RequestScoped
-public class solicitarBean {
+@ManagedBean
+@ViewScoped
+public class solicitarBean implements Serializable {
 
     private String tipoCita;
     private Date fechaCita;
     private char jornada;
     private List<Cita> list;
+    private Cita selectedCita;
     
     /**
      * Creates a new instance of solicitarBean
@@ -64,6 +65,14 @@ public class solicitarBean {
         return "Perfil";
     }
     
+    public boolean getIsUser(){
+        Client cliente = Client.getInstance();
+        if(cliente.getIdUser()>0){
+            return true;
+        }
+        return false;
+    }
+    
     public void solicitar(ActionEvent actionEvent){
         ConnectionBean data = ConnectionBean.getInstance();
         Client cliente = Client.getInstance();
@@ -97,15 +106,18 @@ public class solicitarBean {
         while((auxRow = data.getDBData(columns))!= null){
             list.add(new Cita(auxRow[0], auxRow[1], auxRow[2]));
         }
-    }
-
-    public void getSelectedCita(ActionEvent actionEvent){
+        if(list.isEmpty()){
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, 
+                    "No hay citas disponibles.", 
+                    "No existen citas disponibles para los datos ingresados, por favor intente con otro día u otro tipo de cita.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
         
-        System.err.println("*******************------------LA CITA SELECCIONADA ES: ");
     }
 
-    public void selectCarFromDialog(Cita cita) {
-        System.err.println("*******************------------LA CITA SELECCIONADA ES: " + cita.getDoctor());
+    public void realSolicitar(ActionEvent actionEvent){
+        ConnectionBean data = ConnectionBean.getInstance();
+        Client cliente = Client.getInstance();
     }
     
     public String getTipoCita() {
@@ -116,14 +128,6 @@ public class solicitarBean {
         this.tipoCita = tipoCita;
     }
 
-    public char getJornada() {
-        return jornada;
-    }
-
-    public void setJornada(char jornada) {
-        this.jornada = jornada;
-    }
-
     public Date getFechaCita() {
         return fechaCita;
     }
@@ -132,12 +136,28 @@ public class solicitarBean {
         this.fechaCita = fechaCita;
     }
 
+    public char getJornada() {
+        return jornada;
+    }
+
+    public void setJornada(char jornada) {
+        this.jornada = jornada;
+    }
+
     public List<Cita> getList() {
         return list;
     }
 
     public void setList(List<Cita> list) {
         this.list = list;
+    }
+
+    public Cita getSelectedCita() {
+        return selectedCita;
+    }
+
+    public void setSelectedCita(Cita selectedCita) {
+        this.selectedCita = selectedCita;
     }
     
 }

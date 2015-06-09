@@ -73,11 +73,11 @@ public class serviciosBean {
         }
         return aux;
     }
-    public List<String> loadLocation(){
+    public List<String> loadLocation(String query){
         ConnectionBean data = ConnectionBean.getInstance();
         Client cliente = Client.getInstance();
         List<String> aux = new ArrayList<String>();
-        String[] columns = {"nombre_lugar"};
+        String[] columns = {"nombre_ips"};
         String[] auxRow = {};
         String query2="select nombre_lugar " +
                         "from clientes c, eps e, ips i, sedes_ips si, lugares l " +
@@ -90,7 +90,7 @@ public class serviciosBean {
                         "group by NOMBRE_LUGAR";
         data.loadQuery(query2);
         while((auxRow = data.getDBData(columns))!= null){
-            aux.add(auxRow[0]);
+            aux.add(query+auxRow[0]);
         }
         return aux;
     }

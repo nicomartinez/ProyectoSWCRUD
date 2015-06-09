@@ -8,7 +8,7 @@
         <title>Sistema Integrado de Salud </title>
     </h:head>
     
-    <body style="padding: 0px">
+    <body style="padding: 0px; font-family: arial">
         <div style="min-width:400px;min-height:150px;background-color: rgb(43,46,49)">
             <div ><img style="width: 257px; height: 130px; margin-top: 20px; margin-left: 30px" src="images/LogoSIS.png"></img></div>
             <div ><h1 align="center" style="margin-top: -70px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
@@ -19,8 +19,8 @@
                 <p:menuitem value="INICIO" style="padding-top: 15px" url="index.xhtml" icon="ui-icon-home" />
                 <f:facet name="options">
                     <p:menubar>
-                        <p:submenu label="#{indexBean.user}" icon="ui-icon-person" >
-                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"/>
+                        <p:submenu label="#{solicitarBean.user}" icon="ui-icon-person" >
+                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"  rendered="#{solicitarBean.isUser}"/>
                             <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
@@ -31,7 +31,7 @@
         <div>
         <h:form>
             <p:menu style="font-size: 16px">
-                           <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
+                        <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
                         <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
                         <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
                         <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
@@ -58,37 +58,36 @@
                             <p:growl id="msgs" showDetail="true" />
                             <p:panel id="basic" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8"> 
-                               <h:outputLabel for="ips" value="IPS" />
-                               <p:autoComplete id="ips" dropdown="true" value="#{sucursalBean.ips}" completeMethod="#{sucursalBean.loadIPS}"/>
+                                <h:outputLabel for="ips" value="IPS" />
+                                <p:autoComplete id="ips" dropdown="true" value="#{sucursalBean.ips}" completeMethod="#{sucursalBean.loadIPS}"/>
                                
-                               <p:commandButton  icon="ui-icon-search" actionListener="#{sucursalBean.sucursal(actionEvent)}" update="table" value="Consultar" />
+                                <p:commandButton  icon="ui-icon-search" update="basicTable" value="Consultar" actionListener="#{sucursalBean.sucursal(actionEvent)}" />
                                 </h:panelGrid>
                             </p:panel>
                             
-                             <p:panel id="basicTable" header="Sucursales" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; min-height:120px;  margin-top: 20px; text-align:center ">
+                             <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top: 20px ">
                                 
-                                 <p:dataTable var="sucursal" value="#{sucursalBean.list}" id="table">
+                                 <p:dataTable var="sucursal" value="#{sucursalBean.list}">
+                                    <f:facet name="header">  
+                                            Sucursales  
+                                    </f:facet>
                                     <p:column headerText="Nombre">
                                         <h:outputText value="#{sucursal.nombre}" />
                                     </p:column>
-                                    <p:column headerText="Ciudad">
+                                     <p:column headerText="Ciudad" width="110">
                                         <h:outputText value="#{sucursal.ciudad}" />
                                     </p:column>
-                                    <p:column headerText="Direccion">
+                                     <p:column headerText="Direccion" width="180">
                                         <h:outputText value="#{sucursal.direccion}" />
                                     </p:column>
+
                                 </p:dataTable>
                             </p:panel>
                             </h:form>
-                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>   
+                            <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>
                         </div>
             </div>
-                   
-                        
-                 
-      
         </h:form>
-         </div>   
-            
+         </div>
     </body>
 </html>

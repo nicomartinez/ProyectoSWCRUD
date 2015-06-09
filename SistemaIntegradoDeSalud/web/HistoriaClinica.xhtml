@@ -20,7 +20,7 @@
                 <f:facet name="options">
                     <p:menubar>
                         <p:submenu label="#{indexBean.user}" icon="ui-icon-person" >
-                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"/>
+                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml" rendered="#{indexBean.isUser}"/>
                             <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
@@ -30,7 +30,7 @@
         </div>
         <div>
         <h:form>
-            <p:menu style="font-size: 16px">
+            <p:menu id="menu" style="font-size: 16px">
                          <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
                         <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
                         <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
@@ -45,7 +45,7 @@
                         <p:menuitem url="SaldoDisponible.xhtml" value="Saldo Disponible"/>
                         <p:menuitem url="MovimientosBancarios.xhtml" value="Movimientos Bancarios"/>
                     </p:menu>
-               
+            <p:sticky target="menu"/>
                 
                
             <div style="width:1114px; height:65px; position:absolute; left:226px;top:222px">
@@ -78,7 +78,9 @@
                                     <p:autoComplete id="tipoDocPaciente" dropdown="true" value="#{historiaBean.tipoDoc}" completeMethod="#{historiaBean.loadTipoDoc}"/>   
                                     
                                     <h:outputLabel for="numeroDocPaciente" value="Numero Documento" />
-                                    <p:inputText id="numeroDocPaciente" value="#{historiaBean.numDocPac}" > <p:ajax event="blur" update="ips" listener="#{historiaBean.loadIPS}"/> </p:inputText>
+                                    <p:inputText id="numeroDocPaciente" value="#{historiaBean.numDocPac}" > 
+                                        <p:ajax event="blur" update="ips" listener="#{historiaBean.loadIPS}"/> 
+                                    </p:inputText>
                                   
                                     <h:outputLabel for="ips" value="IPS" />
                                     <p:autoComplete id="ips" dropdown="true" value="#{historiaBean.ips}"/>
@@ -99,19 +101,10 @@
                             </p:panel>
                             
                             </h:form>
-                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>         
+                            <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>
                         </div>
-                
             </div>
-                   
-                
-                 
-      
         </h:form>
-           
-         </div>   
-            
-            
-     
+         </div>
     </body>
 </html>

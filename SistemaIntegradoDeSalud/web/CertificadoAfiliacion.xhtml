@@ -20,7 +20,7 @@
                 <f:facet name="options">
                     <p:menubar>
                         <p:submenu label="#{indexBean.user}" icon="ui-icon-person" >
-                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"/>
+                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml" rendered="#{indexBean.isUser}"/>
                             <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
@@ -65,23 +65,11 @@
                                 </h:panelGrid>
                             </p:panel>
                             </h:form>
-                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>   
+                            <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5> 
                         </div>
-            </div>
-                   
-                        
-                 
+            </div>   
       
         </h:form>
          </div>   
-            
-            
-        <h:form>
-            <p:layout style=" margin-top:100px; min-width:400px;min-height:50px;">
-                <p:layoutUnit position="center">
-                    Center
-                </p:layoutUnit>
-            </p:layout>
-        </h:form>
     </body>
 </html>

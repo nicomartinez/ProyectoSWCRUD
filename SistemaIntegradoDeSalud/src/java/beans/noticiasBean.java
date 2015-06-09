@@ -72,7 +72,6 @@ public class noticiasBean {
                             "order by tipo_informacion desc; " ;
             data.loadQuery(query);
             while((auxRow = data.getDBData(columns))!= null){
-                System.out.println("entro!!");
                list.add(new Informacion(auxRow[0], auxRow[1]));
             }
         

@@ -19,8 +19,8 @@
                 <p:menuitem value="INICIO" style="padding-top: 15px" url="index.xhtml" icon="ui-icon-home" />
                 <f:facet name="options">
                     <p:menubar>
-                        <p:submenu label="#{indexBean.user}" icon="ui-icon-person" >
-                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"/>
+                        <p:submenu label="#{solicitarBean.user}" icon="ui-icon-person" >
+                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"  rendered="#{solicitarBean.isUser}"/>
                             <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
@@ -53,37 +53,33 @@
                            <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central; font-size: 20px"> SALDO DISPONIBLE </h3></div>
                         </div>
                 
-                        <div style=" margin-top:3px; width:1114px; background-color: rgb(146,189,219);position: absolute;top:66px">
+                        <div style=" margin-top:1px; width:1114px; background-color: rgb(146,189,219);position: absolute;top:66px">
                             <h:form>
                             <p:growl id="msgs" showDetail="true" />
-                             <p:panel id="basicTable" header="Cuenta" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(146,189,219); width: 700px; min-height: 280px; margin-top: 20px; text-align:center ">
+                             <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(146,189,219); width: 700px; min-height: 262px; margin-top: 20px; text-align:center">
                                 
-                                 <p:dataTable var="saldo" value="#{saldoBean.list}" id="table">
+                                <p:dataTable var="saldo" value="#{saldoBean.list}" id="table">
+                                    <f:facet name="header">  
+                                            Cuenta 
+                                    </f:facet>
                                     <p:column headerText="Nombre Titular">
-                                        <h:outputText value="#{saldo.nombre}" />
+                                        <div align="center"><h:outputText value="#{saldo.nombre}" /></div>
                                     </p:column>
                                     <p:column headerText="Tipo de Cuenta">
-                                        <h:outputText value="#{saldo.tipo}" />
+                                        <div align="center"><h:outputText value="#{saldo.tipo}" /></div>
                                     </p:column>
-                                    <p:column headerText="Numero">
-                                        <h:outputText value="#{saldo.cuenta}" />
+                                    <p:column headerText="Numero" width="100">
+                                        <div align="center"><h:outputText value="#{saldo.cuenta}" /></div>
                                     </p:column>
-                                     <p:column headerText="Saldo Disponible">
-                                         <h:outputText value="#{saldo.saldo}" />
+                                     <p:column headerText="Saldo Disponible" >
+                                         <div align="center"><h:outputText value="#{saldo.saldo}" /></div>
                                     </p:column>
                                 </p:dataTable>
-                                  
-                                
-                                
                             </p:panel>
                             </h:form>
-                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>   
+                            <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>
                         </div>
             </div>
-                   
-                        
-                 
-      
         </h:form>
          </div>   
     </body>

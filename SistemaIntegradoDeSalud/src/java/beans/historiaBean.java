@@ -69,10 +69,7 @@ public class historiaBean {
             while((auxRow = data.getDBData(columns))!= null){
                 aux.add(auxRow[0]);
             }
-                
-            
-           
-           
+
         }else{
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "SIN USUARIO", "NO has iniciado sesión, por favor vuelve a la pantalla inicial.");
             FacesContext.getCurrentInstance().addMessage(null, message);

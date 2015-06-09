@@ -31,7 +31,6 @@ public class farmaciasBean {
         if(cliente.getIdUser()>0){
             String[] columns = {"nombre_farmacia","direccion_farmacia"};
             String[] auxRow = {};
-            System.err.println("\n\n******** EL CLIENTE ES: " + cliente.getIdUser()+ "*************");
             String query="select nombre_farmacia, direccion_farmacia "
                     + "from clientes c, eps e, sedes_eps se,farmacias f "
                     + "where c.id_eps=e.id_eps "

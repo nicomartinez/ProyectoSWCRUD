@@ -16,10 +16,30 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class IPS {
 
+    private String ciudad;
+    private String direccion;
     /**
      * Creates a new instance of IPS
      */
-    public IPS() {
+    public IPS(String inCiudad, String inDireccion) {
+        this.ciudad = inCiudad;
+        this.direccion = inDireccion;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
     
 }

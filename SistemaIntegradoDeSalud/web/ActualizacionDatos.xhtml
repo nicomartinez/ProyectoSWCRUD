@@ -19,8 +19,8 @@
                 <p:menuitem value="INICIO" style="padding-top: 15px" url="index.xhtml" icon="ui-icon-home" />
                 <f:facet name="options">
                     <p:menubar>
-                        <p:submenu label="#{actualizacionBean.user}" icon="ui-icon-person" >
-                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"/>
+                        <p:submenu label="#{solicitarBean.user}" icon="ui-icon-person" >
+                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"  rendered="#{solicitarBean.isUser}"/>
                             <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
@@ -53,7 +53,7 @@
                            <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central; font-size: 20px">ACTUALIZACION DE DATOS</h3></div>
                         </div>
                 
-                        <div style=" margin-top:3px; width:1114px;  background-color: rgb(235,108,90);position: absolute;top:66px">
+                        <div style=" margin-top:3px; width:1114px; background-color: rgb(235,108,90);position: absolute;top:66px">
                             <h:form>
                             <p:growl id="msgs" showDetail="true" />
 
@@ -87,13 +87,9 @@
                            </p:panel>
                             
                             </h:form>
-                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>   
+                            <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>  
                         </div>
             </div>
-                   
-                        
-                 
-      
         </h:form>
          </div>
     </body>

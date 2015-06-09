@@ -13,84 +13,80 @@
             <div ><img style="width: 257px; height: 130px; margin-top: 20px; margin-left: 30px" src="images/LogoSIS.png"></img></div>
             <div ><h1 align="center" style="margin-top: -70px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
         </div>
+        <h:form id="form">
         <div style="margin-top: -20px">
-            <h:form>
                 <p:menubar style="background-color: rgb(74,77,79)">
                 <p:menuitem value="INICIO" style="padding-top: 15px" url="index.xhtml" icon="ui-icon-home" />
                 <f:facet name="options">
                     <p:menubar>
-                        <p:submenu label="#{indexBean.user}" icon="ui-icon-person" >
-                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"/>
+                        <p:submenu label="#{solicitarBean.user}" icon="ui-icon-person" >
+                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml" rendered="#{solicitarBean.isUser}"/>
                             <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
                 </f:facet>
             </p:menubar>
-            </h:form>
         </div>
         <div>
-        <h:form>
-            <p:menu style="font-size: 16px">
-                         <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
-                        <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
-                        <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
-                        <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
-                        <p:menuitem url="ActualizacionDatos.xhtml"  value="Actualizacion de Datos"/>
-                        <p:menuitem url="CertificadoAfiliacion.xhtml" value="Certificado de Afiliacion"/>
-                        <p:menuitem url="HistoriaClinica.xhtml" value="Historias Clinicas"/>
-                        <p:menuitem url="Servicios.xhtml" value="Servicios Ips"/>
-                        <p:menuitem url="Sucursales.xhtml" value="Sucursales"/>
-                        <p:menuitem url="Dispositivos.xhtml" value="Dispositivos"/>
-                        <p:menuitem url="Noticias.xhtml" value="Noticias y Eventos"/>
-                        <p:menuitem url="SaldoDisponible.xhtml" value="Saldo Disponible"/>
-                        <p:menuitem url="MovimientosBancarios.xhtml" value="Movimientos Bancarios"/>
-                    </p:menu>
-               
+            <p:menu id="menu" style="font-size: 16px">
+                <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
+                <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
+                <p:menuitem url="CancelacionCitas.xhtml" value="Cancelacion de Citas"/>
+                <p:menuitem url="FarmaciasyLaboratorios.xhtml" value="Farmacias y Laboratorios"/>
+                <p:menuitem url="ActualizacionDatos.xhtml"  value="Actualizacion de Datos"/>
+                <p:menuitem url="CertificadoAfiliacion.xhtml" value="Certificado de Afiliacion"/>
+                <p:menuitem url="HistoriaClinica.xhtml" value="Historias Clinicas"/>
+                <p:menuitem url="Servicios.xhtml" value="Servicios Ips"/>
+                <p:menuitem url="Sucursales.xhtml" value="Sucursales"/>
+                <p:menuitem url="Dispositivos.xhtml" value="Dispositivos"/>
+                <p:menuitem url="Noticias.xhtml" value="Noticias y Eventos"/>
+                <p:menuitem url="SaldoDisponible.xhtml" value="Saldo Disponible"/>
+                <p:menuitem url="MovimientosBancarios.xhtml" value="Movimientos Bancarios"/>
+            </p:menu>
+            <p:sticky target="menu" />
                 
                
             <div style="width:1114px; height:65px; position:absolute; left:226px;top:222px">
-                       <div style="width:1114px;height:65px;background-color: rgb(187,38,38);position: absolute">
-                           <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central; font-size: 20px">CANCELACION DE CITAS</h3></div>
-                        </div>
-                
-                        <div style=" margin-top:3px; width:1114px;  background-color: rgb(235,108,90);position: absolute;top:66px">
-                            <h:form>
-                            <p:growl id="msgs" showDetail="true" />
+                <div style="width:1114px;height:65px;background-color: rgb(187,38,38);position: absolute">
+                   <div style=" position: relative" ><h3 align="center" style="color: rgb(0,0,0); text-align: center; alignment-adjust: central; font-size: 20px">CANCELACION DE CITAS</h3></div>
+                </div>
 
-                            <p:panel id="basicTable" style="margin-bottom:20px;margin-left:250px ; background-color:rgb(235,108,90); width: 700px; min-height:280px;  margin-top: 20px ">
-                                <h:panelGrid columns="1" id="matchGrid" cellpadding="8"> 
-                                    
-                                    <p:dataTable var="car" value="#{dtBasicView.cars}">
-                                        <p:column headerText="Cancelar">
-                                            <p:commandButton value="Solicitar" actionListener="#{solicitarBean.getSelectedCita(cita)}" />
-                                        </p:column>
-                                        <p:column headerText="Dia">
-                                            <h:outputText value="#{car.id}" />
-                                        </p:column>
+                <div style=" margin-top:3px; width:1114px; background-color: rgb(235,108,90);position: absolute;top:66px">
+                    <p:growl id="msgs" showDetail="true" sticky="true"/>
 
-                                        <p:column headerText="Hora">
-                                            <h:outputText value="#{car.year}" />
-                                        </p:column>
+                    <p:panel id="basicTable" style="margin-bottom:20px;margin-left:150px ; background-color:rgb(235,108,90); width: 800px; min-height:280px; margin-top: 20px ">
+                            <p:dataTable var="cita" value="#{cancelacionBean.list}">
+                                <p:column headerText="Dia" width="95">
+                                    <h:outputText value="#{cita.dia}" />
+                                </p:column>
 
-                                        <p:column headerText="Doctor">
-                                            <h:outputText value="#{car.brand}" />
-                                        </p:column>
-                                        <p:column headerText="Lugar">
-                                            <h:outputText value="#{car.brand}" />
-                                        </p:column>
+                                <p:column headerText="Hora" width="65">
+                                    <h:outputText value="#{cita.hora}" />
+                                </p:column>
 
-                                    </p:dataTable>
-                                </h:panelGrid>
-                            </p:panel>
-                            </h:form>
-                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>   
-                        </div>
+                                <p:column headerText="Doctor" width="180">
+                                    <h:outputText value="#{cita.doctor}" />
+                                </p:column>
+                                <p:column headerText="Lugar" width="180">
+                                    <h:outputText value="#{cita.lugar}" />
+                                </p:column>
+                                <p:column headerText="Cancelar" width="110">
+                                    <p:commandButton update=":form:msgs" value="Cancelar">
+                                        <f:setPropertyActionListener value="#{cita}" target="#{cancelacionBean.selectedCita}" />
+                                        <p:confirm header="Confirmation" message="¿Está seguro que desea cancelar la cita?" icon="ui-icon-alert" />
+                                    </p:commandButton>
+                                    <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                    </p:confirmDialog>
+                                </p:column>
+                            </p:dataTable>
+                    </p:panel>
+                    <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5> 
+                </div>
             </div>
-                   
-                        
-                 
       
+        </div>
         </h:form>
-         </div>   
     </body>
 </html>

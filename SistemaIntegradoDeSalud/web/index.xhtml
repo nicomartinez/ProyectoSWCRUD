@@ -23,7 +23,7 @@
                 <f:facet name="options">
                     <p:menubar>
                         <p:submenu label="#{indexBean.user}" icon="ui-icon-person" >
-                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml"/>
+                            <p:menuitem value="Cambiar contraseña" url="CambioContrasenia.xhtml" rendered="#{indexBean.isUser}"/>
                             <p:menuitem value="Salir" actionListener="#{indexBean.exit(actionEvent)}"/>
                         </p:submenu>
                     </p:menubar>
@@ -33,6 +33,7 @@
         </div>
         <div>
         <h:form>
+            <p:growl id="msgs" showDetail="true" />
             <p:menu style="font-size: 16px">
                         <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
                         <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
@@ -50,30 +51,22 @@
                     </p:menu>
                     
                
-            <div style="width:1114px; height:65px; position:absolute; left:226px;top:222px">
-                    <div style="  width:1114px; height:400px; background-color: rgb(250,200,84)">
-                             <div ><img style="width: 700px; height: 350px; margin-top: 20px; margin-left: 180px" src="images/fondo3.jpg"></img></div>
-                    </div>
+            <div style="min-width:1114px;min-height:65px; position:absolute; left:226px;top:222px">
+                <div style="min-width:1114px;height:400px; background-color: rgb(250,200,84)">
+                         <div ><img style="width: 700px; height: 350px; margin-top: 20px; margin-left: 180px" src="images/fondo3.jpg"></img></div>
+                </div>
+
+                <div style=" margin-top:-20px; min-width:1114px;height:65px;background-color: rgb(235,119,14) ">
+                        <div><h3 align="center" style="color: rgb(255,255,255)">Ultimas Noticias</h3></div>
+                </div>
                 
-                    <div style=" margin-top:-16px; width:1114px;height:65px;background-color: rgb(235,119,14) ">
-                            <div><h3 align="center" style="color: rgb(255,255,255)">Ultimas Noticias</h3></div>
-                        </div>
+                <div style="background-color: rgb(74,77,79); margin-top: -27px">
+                    <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>
+                </div>
             </div>
-                   
-                        
-               
-      
+
         </h:form>
-         </div>   
-            
-            
-        <h:form>
-            <p:layout style=" margin-top:100px; min-width:400px;min-height:50px;">
-                <p:layoutUnit position="center">
-                    Center
-                </p:layoutUnit>
-            </p:layout>
-        </h:form>
+         </div>
     </body>
 </html>
 
