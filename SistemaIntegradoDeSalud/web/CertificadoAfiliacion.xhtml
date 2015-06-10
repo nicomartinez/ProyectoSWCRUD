@@ -13,8 +13,8 @@
             <div ><img style="width: 257px; height: 130px; margin-top: 20px; margin-left: 30px" src="images/LogoSIS.png"></img></div>
             <div ><h1 align="center" style="margin-top: -70px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
         </div>
+        <h:form id="form">
         <div style="margin-top: -20px">
-            <h:form>
                 <p:menubar style="background-color: rgb(74,77,79)">
                 <p:menuitem value="INICIO" style="padding-top: 15px" url="index.xhtml" icon="ui-icon-home" />
                 <f:facet name="options">
@@ -26,10 +26,8 @@
                     </p:menubar>
                 </f:facet>
             </p:menubar>
-            </h:form>
         </div>
         <div>
-        <h:form>
             <p:menu style="font-size: 16px">
                         <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
                         <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
@@ -61,15 +59,22 @@
                                 <h:panelGrid columns="2" id="matchGrid" cellpadding="8">                   
                                   <h:outputLabel for="destino" value="Destino" />
                                   <p:inputText id="destino" value="#{certificadoBean.destino}"  required="true" />
-                                    <p:commandButton  icon="ui-icon-check" update="msgs" actionListener="#{certificadoBean.certificado(actionEvent)}" value="Aceptar" />
+                                    <p:commandButton  icon="ui-icon-check" oncomplete="PF('carDialog').show()" update=" carDetail msgs" actionListener="#{certificadoBean.certificado(actionEvent)}" value="Aceptar" />
                                 </h:panelGrid>
+                               <p:dialog header="Modelo del certificado." widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                                   <p:outputPanel id="carDetail" style="text-align:center;">
+                                       <div align="justify">
+                                          Test 
+                                       </div>
+                                       <p:commandButton icon="ui-icon-check"  update="msgs" value="Solicitar" onclick="carDialog.hide()"/>
+                                    </p:outputPanel>
+                               </p:dialog>
                             </p:panel>
                             </h:form>
                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5> 
                         </div>
-            </div>   
-      
+            </div>
+         </div>
         </h:form>
-         </div>   
     </body>
 </html>

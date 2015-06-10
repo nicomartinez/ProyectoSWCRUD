@@ -8,13 +8,13 @@
         <title>Sistema Integrado de Salud </title>
     </h:head>
     
-    <body style="padding: 0px; font-family: arial">
+    <h:body style="padding: 0px; font-family: arial">
         <div style="min-width:400px;min-height:150px;background-color: rgb(43,46,49)">
             <div ><img style="width: 257px; height: 130px; margin-top: 20px; margin-left: 30px" src="images/LogoSIS.png"></img></div>
             <div ><h1 align="center" style="margin-top: -70px;color: rgb(255,255,255)">SISTEMA INTEGRADO DE SALUD</h1></div>
         </div>
+        <h:form id="form">
         <div style="margin-top: -20px">
-            <h:form>
                 <p:menubar style="background-color: rgb(74,77,79)">
                 <p:menuitem value="INICIO" style="padding-top: 15px" url="index.xhtml" icon="ui-icon-home" />
                 <f:facet name="options">
@@ -26,10 +26,8 @@
                     </p:menubar>
                 </f:facet>
             </p:menubar>
-            </h:form>
         </div>
         <div>
-        <h:form>
             <p:menu id="menu" style="font-size: 16px">
                          <p:menuitem url="PagoCuota.xhtml" value="Pago cuota Moderadora"/>
                         <p:menuitem url="SolicitudCitas.xhtml" value="Solicitud de Citas"/>
@@ -75,16 +73,16 @@
                             <p:panel id="basicPaciente" style="margin-bottom:30px;margin-left:250px ; background-color:rgb(159,192,109); width: 700px; margin-top:20px  ">
                                 <h:panelGrid columns="2" id="matchGridPaciente" cellpadding="8">  
                                     <h:outputLabel for="tipoDocPaciente" value="Tipo de Documento" />
-                                    <p:autoComplete id="tipoDocPaciente" dropdown="true" value="#{historiaBean.tipoDoc}" completeMethod="#{historiaBean.loadTipoDoc}"/>   
+                                    <p:autoComplete id="tipoDocPaciente" dropdown="true" value="#{historiaBean.tipoDoc}" completeMethod="#{historiaBean.loadTipoDoc}"/>
                                     
-                                    <h:outputLabel for="numeroDocPaciente" value="Numero Documento" />
-                                    <p:inputText id="numeroDocPaciente" value="#{historiaBean.numDocPac}" > 
-                                        <p:ajax event="blur" update="ips" listener="#{historiaBean.loadIPS}"/> 
+                                    <h:outputText value="Documento paciente " />
+                                    <p:inputText id="numDocPac" value="#{historiaBean.ips}">
+                                        <p:ajax event="blur" update="ips numDocPac" partialSubmit="true"/>
                                     </p:inputText>
-                                  
+
                                     <h:outputLabel for="ips" value="IPS" />
-                                    <p:autoComplete id="ips" dropdown="true" value="#{historiaBean.ips}"/>
-                                    
+                                    <p:autoComplete id="ips" dropdown="true" />
+
                                     <p:commandButton  icon="ui-icon-check" actionListener="#{historiaBean.historia(actionEvent)}" update="matchGrid" value="Aceptar" />
                                 </h:panelGrid>
                            </p:panel>
@@ -104,7 +102,7 @@
                             <h5 align="center" style="text-align: center;min-height: 24px;background-color: rgb(100,100,100); margin-bottom: 0px;padding-top: 10px; font-size: 16px">Sistema Integrado de Salud. Todos los derechos Reservados &reg;2015</h5>
                         </div>
             </div>
-        </h:form>
          </div>
-    </body>
+        </h:form>
+    </h:body>
 </html>

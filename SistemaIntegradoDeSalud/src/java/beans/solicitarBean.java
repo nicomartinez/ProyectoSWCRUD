@@ -115,9 +115,40 @@ public class solicitarBean implements Serializable {
         
     }
 
+    public int getIdHora(){
+        ConnectionBean data = ConnectionBean.getInstance();
+        String query = "select id_hora from horas where HORA_DISPONIBLE = '"+selectedCita.getHora()+"'";
+        return Integer.parseInt(data.rows(query, "id_hora"));
+    }
+    
+    public int getIdDoctor(){
+        ConnectionBean data = ConnectionBean.getInstance();
+        String query = "select id_doctor " +
+                "from doctores " +
+                "where NOMBRE_DOCTOR='"+selectedCita.getDoctor()+"'";
+        return Integer.parseInt(data.rows(query, "id_doctor"));
+    }
+
+    public int getIdDia(){
+        ConnectionBean data = ConnectionBean.getInstance();
+        SimpleDateFormat format = new SimpleDateFormat("u");
+        return Integer.parseInt(format.format(fechaCita));
+    }
+    
     public void realSolicitar(ActionEvent actionEvent){
         ConnectionBean data = ConnectionBean.getInstance();
         Client cliente = Client.getInstance();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+        String query = "insert into citas (id_cliente, id_doctor, id_hora, id_dia, fecha_cita) "
+                + "values ("+cliente.getIdUser()+
+                ", "+getIdDoctor()+
+                ", "+getIdHora()+
+                ", "+getIdDia()+
+                ", '"+format.format(fechaCita)+"');";
+        data.insert(query);
+        solicitar(actionEvent);
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Informe.", "Se le ha asignado la cita.");
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
     
     public String getTipoCita() {

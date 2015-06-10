@@ -65,7 +65,7 @@
                                 <p:autoComplete id="tipoCita" dropdown="true" value="#{solicitarBean.tipoCita}" completeMethod="#{solicitarBean.loadTipoCita}"/>
 
                                 <h:outputLabel for="fecha" value="Fecha" />
-                                <p:calendar id="fecha" value="#{solicitarBean.fechaCita}" pattern="yyyy-mm-dd" showOn="button" />
+                                <p:calendar id="fecha" value="#{solicitarBean.fechaCita}" pattern="dd-MM-yyyy" showOn="button" />
 
                                 <h:outputLabel for="jornada" value="Jornada" />
                                 <p:selectOneMenu id="jornada" value="#{solicitarBean.jornada}" style="width:125px">
@@ -73,7 +73,8 @@
                                     <f:selectItem itemLabel="Tarde" itemValue="T" />
                                 </p:selectOneMenu>
 
-                                <p:commandButton icon="ui-icon-check" actionListener="#{solicitarBean.solicitar(actionEvent)}" update="table msgs" value="Aceptar" />
+                                <br/>
+                                <p:commandButton icon="ui-icon-search" actionListener="#{solicitarBean.solicitar(actionEvent)}" update="table msgs" value="Consultar" />
 
                             </h:panelGrid>
                         </p:panel>
@@ -117,7 +118,7 @@
                                             <h:outputText value="Lugar:" />
                                             <h:outputText value="#{solicitarBean.selectedCita.lugar}" />
                                         </p:panelGrid>
-                                        <p:commandButton icon="ui-icon-check" actionListener="#{solicitarBean.realSolicitar(actionEvent)}" update="table msgs" value="Aceptar" onclick="carDialog.hide()"/>
+                                        <p:commandButton icon="ui-icon-check" actionListener="#{solicitarBean.realSolicitar(actionEvent)}" update="table msgs" value="Solicitar" onclick="carDialog.hide()"/>
                                     </p:outputPanel>
                                 </p:dialog>
                         </p:panel>

@@ -6,7 +6,6 @@
 package beans;
 
 import java.awt.event.ActionEvent;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -27,8 +26,8 @@ public class historiaBean {
     private String numeroTel;
     
     private char tipoDoc;
-    private int numDocPac;
-    private char ips;
+    private String numDocPac;
+    private String ips;
     
     public historiaBean(){
         ConnectionBean data = ConnectionBean.getInstance();
@@ -118,7 +117,6 @@ public class historiaBean {
             FacesContext.getCurrentInstance().addMessage(null, message);
          }
     }
-    
 
     public String getNombres() {
         return nombres;
@@ -152,20 +150,23 @@ public class historiaBean {
         this.tipoDoc = tipoDoc;
     }
 
-    public int getNumDocPac() {
+    public String getNumDocPac() {
         return numDocPac;
     }
 
-    public void setNumDocPac(int numDocPac) {
+    public void setNumDocPac(String numDocPac) {
+//        System.err.println("PRUEBA EXITOSA, SE HA INGRESADO UNA LETRA");
         this.numDocPac = numDocPac;
     }
 
-    public char getIps() {
+    public String getIps() {
         return ips;
     }
 
-    public void setIps(char ips) {
+    public void setIps(String ips) {
+        System.err.println("PRUEBA EXITOSA, SE HA INGRESADO UNA LETRA");
         this.ips = ips;
     }
+
     
 }
