@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 //import jdk.nashorn.internal.objects.annotations.Constructor;
 
@@ -18,6 +19,7 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean
 @RequestScoped
+@ViewScoped
 public class pagoCuotaBean {
     
     private int referencia;
@@ -33,14 +35,16 @@ public class pagoCuotaBean {
             String query ="select  case  when truncate( datediff(CURRENT_DATE,fecha_cuota)/30,0) >= 1 then 1 else 2 end fecha from cuotas where id_cuota = (select max(id_cuota) from cuotas where id_cliente = "+cliente.getIdUser()+");";
 
                 if(data.rows(query, "fecha").equals("1")){
+                    System.out.println("entro");
                     String query2="select distinct( max(id_cuota)) id, CURRENT_DATE fecha, valor_cuota valor from cuotas c, clientes cl where cl.id_cliente = c.id_cliente;";
                     referencia= Integer.parseInt(data.rows(query2, "id"))+1;
                     descripcion= data.rows(query2, "fecha");
                     System.out.println(descripcion);
                     valor= Integer.parseInt(data.rows(query2, "valor"));
                 }else{
-                 FacesMessage prueba = new FacesMessage(FacesMessage.SEVERITY_INFO, "Informe","Aun no es hora de realizar el pago de las cuota");
-                 FacesContext.getCurrentInstance().addMessage(null, prueba);
+                    System.out.println("entro al mensaje");
+                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Informe","Aun no es hora de realizar el pago de las cuota");
+                 FacesContext.getCurrentInstance().addMessage(null, message);
                 }
             
             

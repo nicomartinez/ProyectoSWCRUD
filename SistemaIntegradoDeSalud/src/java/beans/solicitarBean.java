@@ -139,8 +139,9 @@ public class solicitarBean implements Serializable {
         ConnectionBean data = ConnectionBean.getInstance();
         Client cliente = Client.getInstance();
         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-        String query = "insert into citas (id_cliente, id_doctor, id_hora, id_dia, fecha_cita) "
-                + "values ("+cliente.getIdUser()+
+        String query2="select max(id_cita)+1 id from citas";
+        
+        String query = "insert into citas values ("+data.rows(query2, "id")+","+cliente.getIdUser()+
                 ", "+getIdDoctor()+
                 ", "+getIdHora()+
                 ", "+getIdDia()+
